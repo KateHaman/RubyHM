@@ -11,7 +11,7 @@ class Panda
         @tidy = 10
         @mouthHygiene = 10
         @fit = 10
-        @HP = 10
+        @hp = 10
 
         puts @name + ' was born.'
     end
@@ -19,64 +19,64 @@ class Panda
     def feed
         puts @name + ' has been given bamboo.'
         @full = 10
-        passageOfTime
+        passage_of_time
     end
 
-    def putToBed
+    def put_to_bed
         puts @name + ' is in bed.'
         puts @name + ' has bright dreams about childhood.'
         @energy = 10
-        passageOfTime
+        passage_of_time
     end
 
     def play
         puts @name + ' has been played with.'
         @mood = 10
-        passageOfTime
+        passage_of_time
     end
 
     def hug
         puts @name + ' is being hugged.'
         @love = 10
-        passageOfTime
+        passage_of_time
     end
 
     def speak
         puts @name + ' is allowed to speak to other pandas.'
         @socialized = 10
-        passageOfTime
+        passage_of_time
     end
 
     def wash
         puts @name + ' has been washed.'
         @hygiene = 10
-        passageOfTime
+        passage_of_time
     end
 
-    def combOut
+    def com_out
         puts @name + ' is being combed out. It is not easy... '
         puts  @name + ' hates being combed out and grumbles.'
         @tidy = 10
-        passageOfTime
+        passage_of_time
     end
 
-    def brushTeeth
+    def brush_teeth
         puts @name + ' has the teeth brushed with the mouthwash.'
         puts @name + ' coughs as the taste of mouthwash is bitter.'
         @mouthHygiene = 10
-        passageOfTime
+        passage_of_time
     end
 
-    def workOut
+    def work_out
         puts  @name + ' tries to loose weight.'
         @fit = 10
-        passageOfTime
+        passage_of_time
     end
 
     def heal
         puts @name + ' is being healed.'
-        @HP = 10
-        passageOfTime
+        @hp = 10
+        passage_of_time
     end
 
     def check
@@ -89,7 +89,7 @@ class Panda
         puts 'tidy:' + @tidy.to_s
         puts 'mouthHygiene:' + @mouthHygiene.to_s
         puts 'fit:' + @fit.to_s
-        puts 'HP:' + @HP.to_s
+        puts 'hp:' + @hp.to_s
     end
 
     def help 
@@ -108,31 +108,31 @@ class Panda
 
     private
  
-    def passageOfTime
+    def passage_of_time
         @full += rand(-5..5)
-        checkIfFull
+        check_if_full
         @energy += rand(-5..5)
-        checkIfSleepy
-        @mood += rand(-10..10)
-        checkMood
+        check_if_sleepy
+        @mood += rand(-5..5)
+        check_mood
         @love += rand(-5..5)
-        checkIfLoved
+        check_if_loved
         @socialized += rand(-5..5)
-        checkIfLonely
+        check_if_lonely
         @hygiene += rand(-5..5)
-        checkIfDirty
+        check_if_dirty
         @tidy += rand(-5..5)
-        checkIfTidy
+        check_if_tidy
         @mouthHygiene += rand(-5..5)
-        checkMouthHygiene
+        check_mouth_hygiene
         @fit += rand(-5..5)
-        checkIfFit
-        @HP += rand(-5..5)
-        checkIfHealthy
+        check_if_fit
+        @hp += rand(-5..5)
+        check_if_healthy
         info
     end
     
-    def checkIfFull
+    def check_if_full
         if @full < 10 && @full > 2
             puts @name + ' asks for some more bamboo.'
         elsif @full <= 2  
@@ -141,7 +141,7 @@ class Panda
         end
     end
 
-    def checkIfSleepy
+    def check_if_sleepy
         if @energy < 10 && @energy > 2
             puts @name + ' is sleepy and needs some rest.'
         elsif @energy <= 2
@@ -149,7 +149,7 @@ class Panda
         end
     end
 
-    def checkMood
+    def check_mood
         if @mood < 10 && @mood > 2
             puts @name + ' is bored. It wants to play.'
         elsif @mood <= 2
@@ -157,7 +157,7 @@ class Panda
         end
     end
 
-    def checkIfLoved
+    def check_if_loved
         if @love < 10 && @love > 2
             puts @name + ' feels a bit neglected. It needs some hugs.'
         elsif @love <= 2
@@ -165,7 +165,7 @@ class Panda
         end
     end
 
-    def checkIfLonely
+    def check_if_lonely
         if @socialized < 10 && @socialized > 2
             puts @name + ' feels very strange in human society. Communicating with other pandas might make it feel better.'
         elsif @socialized <= 2 
@@ -173,7 +173,7 @@ class Panda
         end
     end
 
-    def checkIfDirty
+    def check_if_dirty
         if @hygiene < 10 && @hygiene > 2
             puts @name + ' looks so dirty! It might be a good idea to take a shower.'
         elsif @hygiene <= 2
@@ -181,7 +181,7 @@ class Panda
         end
     end
 
-    def checkIfTidy
+    def check_if_tidy
         if @tidy < 10 && @tidy > 2
             puts @name + ' feels as if it is a Chewbacca. Comb it out!'
         elsif @tidy <= 2 
@@ -189,7 +189,7 @@ class Panda
         end
     end
 
-    def checkMouthHygiene
+    def check_mouth_hygiene
         if @mouthHygiene < 10 && @mouthHygiene > 2
             puts @name + ' gets such a smell from the mouth! Brushing teeth might help to get rid of it.'
         elsif @mouthHygiene <= 2
@@ -198,7 +198,7 @@ class Panda
         end
     end
 
-    def checkIfFit
+    def check_if_fit
         if @fit < 10 && @fit > 2
             puts @name + ' gained some weight and feels uncomformable. Its high time to work out!'
         elsif @fit <= 2
@@ -206,10 +206,10 @@ class Panda
         end
     end
 
-    def checkIfHealthy
-        if @HP < 10 && @HP >2
+    def check_if_healthy
+        if @hp < 10 && @hp >2
             puts @name + ' coughs and has a fever. Give it some medicine!'
-        elsif @HP <= 2
+        elsif @hp <= 2
             puts @name + ' feels miserable. Call 911 to heal it.'
         end
     end
@@ -224,7 +224,7 @@ class Panda
         puts 'tidy:' + @tidy.to_s
         puts 'mouthHygiene:' + @mouthHygiene.to_s
         puts 'fit:' + @fit.to_s
-        puts 'HP:' + @HP.to_s
+        puts 'hp:' + @hp.to_s
     end
 end
    
@@ -253,7 +253,7 @@ until command == 'exit' do
     when '1'
         panda.feed
     when '2'
-        panda.putToBed
+        panda.put_to_bed
     when '3'
         panda.play
     when '4'
@@ -263,11 +263,11 @@ until command == 'exit' do
     when '6'
         panda.wash
     when '7'
-        panda.combOut
+        panda.com_out
     when '8'
-        panda.brushTeeth
+        panda.brush_teeth
     when '9'
-        panda.workOut
+        panda.work_out
     when '10'
         panda.heal
     when '11'
