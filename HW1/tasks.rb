@@ -15,20 +15,20 @@ array = [0, 2, 3]
 array.rindex { |num| array[0] < num && num < array[-1] } || []
 puts '-------------------------------------------------'
 puts '5. Дан целочисленный массив. Преобразовать его, прибавив к четным числам первый элемент. Первый и последний элементы массива не изменять.'
-array = [2, 3, 4, 5, 6, 7]
-array.map {|element| element.even? && (element != array[0] && element != array[-1]) ? element + array.first : element}
+array = [2, 2, 2, 3, 4, -12, 5, 6, 7, 2]
+array.map.with_index { |element, index| (index != 0 && index != array.length-1) &&  element.even? ? element + array.first : element }
 puts '-------------------------------------------------'
 puts '6. Дан целочисленный массив. Преобразовать его, прибавив к четным числам последний элемент. Первый и последний элементы массива не изменять.'
-array = [2, 3, 4, 5, 6, 7]
-array.slice(0,1) + array.slice(1...-1).map {|element| element.even? ? element + array.last : element } + array.slice(-1, 1)
+array = [2, 2, 2, 3, 4, -12, 5, 6, 7, 4]
+array.map.with_index { |element, index| (index != 0 && index != array.length-1) &&  element.even? ? element + array.last : element }
 puts '-------------------------------------------------'
 puts '7. Дан целочисленный массив. Преобразовать его, прибавив к нечетным числам последний элемент. Первый и последний элементы массива не изменять.'
-array = [2, 3, 4, 5, 6, 7]
-array.map {|element| element.odd? && (element != array[0] && element != array[-1]) ? element + array.last : element}
+array = [2, 2, 2, 3, 4, -12, 5, 6, 7, 4]
+array.map.with_index { |element, index| (index != 0 && index != array.length-1) &&  element.odd? ? element + array.last : element }
 puts '-------------------------------------------------'
 puts '8. Дан целочисленный массив. Преобразовать его, прибавив к нечетным числам первый элемент. Первый и последний элементы массива не изменять.'
-array = [2, 3, 4, 5, 6, 7]
-array.slice(0, 1) + array.slice(1...-1).map {|element| element.odd? ? element + array.first : element} + array.slice(-1, 1)
+array = [2, 2, 2, 3, 4, -12, 5, 6, 7, 4]
+array.map.with_index { |element, index| (index != 0 && index != array.length-1) &&  element.odd? ? element + array.first : element }
 puts '-------------------------------------------------'
 puts '9. Дан целочисленный массив. Заменить все положительные элементы на значение минимального.'
 array = [-20, 5, -3, 0, 11, -22]
