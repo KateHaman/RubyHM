@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    FourtyTwo (0.0.1)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  FourtyTwo
+
+BUNDLED WITH
+   2.2.3
