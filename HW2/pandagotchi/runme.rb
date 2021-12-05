@@ -52,7 +52,7 @@ class Panda
     passage_of_time
   end
 
-  def com_out
+  def comb_out
     puts "#{@name} is being combed out. It is not easy..."
     puts  "#{@name} hates being combed out and grumbles."
     @tidy = 10
@@ -152,7 +152,7 @@ class Panda
     if @mood < 10 && @mood > 2
       puts "#{@name} is bored. It wants to play."
     elsif @mood <= 2
-      puts "#{@name} + ' is aboout to get mad of being bored. Play with it!"
+      puts "#{@name} is aboout to get mad of being bored. Play with it!"
     end
   end
 
@@ -262,7 +262,7 @@ until command == 'exit'
   when '6'
     panda.wash
   when '7'
-    panda.com_out
+    panda.comb_out
   when '8'
     panda.brush_teeth
   when '9'
