@@ -81,16 +81,7 @@ class Panda
   end
 
   def check
-    puts "full: #{@full}"
-    puts "energy: #{@energy}"
-    puts "mood: #{@mood}"
-    puts "love: #{@love}"
-    puts "socialized: #{@socialized}"
-    puts "hygiene: #{@hygiene}"
-    puts "tidy: #{@tidy}"
-    puts "mouth hygiene: #{@mouth_hygiene}"
-    puts "fit: #{@fit}"
-    puts "hp: #{@hp}"
+    passage_of_time
   end
 
   def help
@@ -130,7 +121,8 @@ class Panda
     check_if_fit
     @hp += rand(-5..5)
     check_if_healthy
-    info
+    puts info
+    HTMLSaver.save(info, file_name: 'index2.html', bypass_html: true)
   end
 
   def check_if_full
@@ -216,65 +208,73 @@ class Panda
   end
 
   def info
-    puts "full: #{@full}"
-    puts "energy: #{@energy}"
-    puts "mood: #{@mood}"
-    puts "love: #{@love}"
-    puts "socialized: #{@socialized}"
-    puts "hygiene: #{@hygiene}"
-    puts "tidy: #{@tidy}"
-    puts "mouth hygiene: #{@mouth_hygiene}"
-    puts "fit: #{@fit}"
-    puts "hp: #{@hp}"
+    info = <<~INFO
+      full: #{@full}<br>
+      energy: #{@energy}<br>
+      mood: #{@mood}<br>
+      love: #{@love}<br>
+      socialized: #{@socialized}<br>
+      hygiene: #{@hygiene}<br>
+      tidy: #{@tidy}<br>
+      mouth hygiene: #{@mouth_hygiene}<br>
+      fit: #{@fit}<br>
+      hp: #{@hp}<br>
+    INFO
+    info += if @full <= 2 && @mouth_hygiene <= 2
+              '💀'
+            else
+              '🐼'
+            end
+    info
   end
-end
 
-puts 'Please enter the name for your pandagotchi:'
-name = gets.chomp
-panda = Panda.new(name)
+  puts 'Please enter the name for your pandagotchi:'
+  name = gets.chomp
+  panda = Panda.new(name)
 
-puts 'Press 0 to check your pandagotchi'
-puts 'Press 1 to feed your pandagotchi'
-puts 'Press 2 to put to bed your pandagotchi'
-puts 'Press 3 to play with your pandagotchi'
-puts 'Press 4 to hug your pandagotchi'
-puts 'Press 5 to let your pandagotchi speak to other pandas'
-puts 'Press 6 to wash your pandagotchi'
-puts 'Press 7 to comb out your pandagotchi'
-puts 'Press 8 to brush the teeth of your pandagotchi'
-puts 'Press 9 for your pandagotchi to work out'
-puts 'Press 10 to heal your pandagotchi'
-puts 'Press 11 to be reminded 0-10'
+  puts 'Press 0 to check your pandagotchi'
+  puts 'Press 1 to feed your pandagotchi'
+  puts 'Press 2 to put to bed your pandagotchi'
+  puts 'Press 3 to play with your pandagotchi'
+  puts 'Press 4 to hug your pandagotchi'
+  puts 'Press 5 to let your pandagotchi speak to other pandas'
+  puts 'Press 6 to wash your pandagotchi'
+  puts 'Press 7 to comb out your pandagotchi'
+  puts 'Press 8 to brush the teeth of your pandagotchi'
+  puts 'Press 9 for your pandagotchi to work out'
+  puts 'Press 10 to heal your pandagotchi'
+  puts 'Press 11 to be reminded 0-10'
 
-command = gets.chomp
-until command == 'exit'
-  case command
-  when '0'
-    panda.check
-  when '1'
-    panda.feed
-  when '2'
-    panda.put_to_bed
-  when '3'
-    panda.play
-  when '4'
-    panda.hug
-  when '5'
-    panda.speak
-  when '6'
-    panda.wash
-  when '7'
-    panda.comb_out
-  when '8'
-    panda.brush_teeth
-  when '9'
-    panda.work_out
-  when '10'
-    panda.heal
-  when '11'
-    panda.help
-  else
-    puts 'Sorry. Please try pressing 1-10. Press 11 to get help.'
-  end
   command = gets.chomp
+  until command == 'exit'
+    case command
+    when '0'
+      panda.check
+    when '1'
+      panda.feed
+    when '2'
+      panda.put_to_bed
+    when '3'
+      panda.play
+    when '4'
+      panda.hug
+    when '5'
+      panda.speak
+    when '6'
+      panda.wash
+    when '7'
+      panda.comb_out
+    when '8'
+      panda.brush_teeth
+    when '9'
+      panda.work_out
+    when '10'
+      panda.heal
+    when '11'
+      panda.help
+    else
+      puts 'Sorry. Please try pressing 1-10. Press 11 to get help.'
+    end
+    command = gets.chomp
+  end
 end

@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
   s.email       = '11kateh@gmail.com'
   s.files       = ["lib/FourtyTwo.rb"]
   s.homepage    =
-    'https://github.com/KateHaman/RubyHM/tree/main/HW3'
+    'https://github.com/KateHaman/RubyHM/tree/main/HW3/FourtyTwo%20gem'
   s.license       = 'MIT'
 end

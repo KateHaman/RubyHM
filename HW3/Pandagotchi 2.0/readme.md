@@ -1,14 +1,14 @@
-## Pandagotchi
-Pandas seem to be the cutest animals in the world... 
+## Pandagotchi 2.0
 
-<https://www.youtube.com/watch?v=RLQiAqc1MI8>
-
-Using a **pandagotchi** will make you believe this.
+With the updated version, it is possible to see your the needs of your **pandagotchi** and if it is still alive in the html file.
 
 ------------------------------------------------------------------------------------------------------------
 
 ### Example
-To run a **pandagotchi**, please run `ruby runme.rb`.
+To run a **pandagotchi**, please run:
+```
+ruby runme.rb
+```
 
 ------------------------------------------------------------------------------------------------------------
 
