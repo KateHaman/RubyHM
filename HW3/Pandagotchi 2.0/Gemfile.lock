@@ -1,9 +1,9 @@
 GIT
-  remote: https://github.com/KateHaman/HTMLSaver
-  revision: 3ddcabb008ed5b0cd05ca6c799993bc502d449f1
+  remote: https://github.com/KateHaman/html_saver
+  revision: e34ed516bb89577addd572c5e2b2e789814eff86
   branch: main
   specs:
-    HTMLSaver (0.0.1)
+    html_saver (0.0.1)
       sanitize
 
 GEM
@@ -20,7 +20,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  HTMLSaver!
+  html_saver!
 
 BUNDLED WITH
    2.2.3

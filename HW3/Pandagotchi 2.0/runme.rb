@@ -1,4 +1,5 @@
-require 'HTMLSaver'
+require 'bundler'
+Bundler.require
 
 class Panda
   def initialize(name)
@@ -122,7 +123,7 @@ class Panda
     @hp += rand(-5..5)
     check_if_healthy
     puts info
-    HTMLSaver.save(info, file_name: 'index2.html', bypass_html: true)
+    HTMLSaver.save(info, file_name: 'index.html', bypass_html: true)
   end
 
   def check_if_full
@@ -223,7 +224,7 @@ class Panda
     info += if @full <= 2 && @mouth_hygiene <= 2
               '<p style="text-align: center; font-size: 80px">Unfortunately, your pandagotchi is dead <br>💀</p>'
             else
-              '<p style="text-align: center; font-size: 80px;">Your pandagotchi is still alive <br>🐼</p>'
+              '<p style="text-align: center; font-family:\'Courier New\'; font-size: 80px;">Your pandagotchi is still alive <br>🐼</p>'
             end
     info
   end
