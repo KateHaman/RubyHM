@@ -6,6 +6,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Kate Haman"]
   s.email       = '11kateh@gmail.com'
   s.files       = ["lib/forty_two.rb"]
-  s.homepage    = 'https://github.com/KateHaman/RubyHM/HW3/FortyTwo%20gem'
+  s.homepage    = 'https://github.com/KateHaman/RubyHM/tree/main/HW3/forty_two%20gem'
   s.license       = 'MIT'
 end

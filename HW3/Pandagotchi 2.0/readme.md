@@ -6,24 +6,11 @@ With the updated version, it is possible to see the vitals of your **pandagotchi
 
 ### Example
 
-Before you run a **pandagotchi**, please:
-1. Create Gemfile:
-```
-touch Gemfile
-```
-2. Add to your Gemfile the following:
-```
-gem 'HTMLSaver', git: 'https://github.com/KateHaman/HTMLSaver', branch: 'main'
-```
-3. Run bundle:
-```
-bundle
-```
-
 To run a **pandagotchi**, please run:
 ```
 ruby runme.rb
 ```
+To check the tamagotchi status, please open index.html.
 
 ------------------------------------------------------------------------------------------------------------
 

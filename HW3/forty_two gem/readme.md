@@ -12,7 +12,7 @@ touch Gemfile
 ```
 2. Add to your Gemfile the following:
 ```
-gem 'forty_two', git: 'https://github.com/KateHaman/RubyHM/HW3/FortyTwo%20gem', branch: 'main'
+gem 'forty_two', git: 'https://github.com/KateHaman/RubyHM/tree/main/HW3/forty_two%20gem', branch: 'main'
 ```
 3. Run bundle:
 ```
