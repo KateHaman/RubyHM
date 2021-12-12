@@ -14,18 +14,19 @@ To run a **pandagotchi**, please run `ruby runme.rb`.
 
 ### How to play?
 **Pandagotchi** requires care for it not to be *hungry*, *sleepy*, *lonely*, *sad*, *bored*,
-*dirty*, *hairy*, *overweight*. To take care of pandagotchi the following can be used:
-- use __check__ to make sure a _pandagotchi is okay_.
-- use __feed__ to make sure a _pandagotchi is not hundry_.
-- use __put_to_bed__ to make sure a _pandagotchi is not sleepy_.
-- use __play__ to make sure a _pandagotchi is not bored_.
-- use __hug__ to make sure a _pandagotchi is hugged to the full extent_.
-- use __speak__ to make for a _pandagotchi to communicate with other pandas_.
-- use __wash__ to make sure a _pandagotchi is not dirty_.
-- use __bruth_teeth__ to make sure a _pandagotchi has its teeth clean_.
-- use __comb_out__ to make sure a _pandagotchi is not a Chewbacca_.
-- use __work_out__ to make sure a _pandagotchi is not overweight_.
-- use __heal__ to _heal a sick pandagotchi_.
+*dirty*, *hairy*, *overweight*. To take care of pandagotchi press:
+- '0' - to make sure a _pandagotchi is okay_.
+- '1' - to make sure a _pandagotchi is not hundry_.
+- '2' - to make sure a _pandagotchi is not sleepy_.
+- '3' - to make sure a _pandagotchi is not bored_.
+- '4' - to make sure a _pandagotchi is hugged to the full extent_.
+- '5' - for a _pandagotchi to communicate with other pandas_.
+- '6' - to make sure a _pandagotchi is not dirty_.
+- '7' - to make sure a _pandagotchi is not a Chewbacca_.
+- '8' - to make sure a _pandagotchi has its teeth clean_.
+- '9' - to make sure a _pandagotchi is not overweight_.
+- '10' - to make sure a _pandagotchi is not sick_.
+- '11' - to get _help_.
 
 ------------------------------------------------------------------------------------------------------------
 
