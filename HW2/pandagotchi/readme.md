@@ -8,7 +8,10 @@ Using a **pandagotchi** will make you believe this.
 ------------------------------------------------------------------------------------------------------------
 
 ### Example
-To run a **pandagotchi**, please run `ruby runme.rb`.
+To run a **pandagotchi**, please run 
+```
+ruby runme.rb
+```
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -16,7 +19,7 @@ To run a **pandagotchi**, please run `ruby runme.rb`.
 **Pandagotchi** requires care for it not to be *hungry*, *sleepy*, *lonely*, *sad*, *bored*,
 *dirty*, *hairy*, *overweight*. To take care of pandagotchi press:
 - '0' - to make sure a _pandagotchi is okay_.
-- '1' - to make sure a _pandagotchi is not hundry_.
+- '1' - to make sure a _pandagotchi is not hungry_.
 - '2' - to make sure a _pandagotchi is not sleepy_.
 - '3' - to make sure a _pandagotchi is not bored_.
 - '4' - to make sure a _pandagotchi is hugged to the full extent_.
