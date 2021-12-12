@@ -209,21 +209,21 @@ class Panda
 
   def info
     info = <<~INFO
-      full: #{@full}<br>
-      energy: #{@energy}<br>
-      mood: #{@mood}<br>
-      love: #{@love}<br>
-      socialized: #{@socialized}<br>
-      hygiene: #{@hygiene}<br>
-      tidy: #{@tidy}<br>
-      mouth hygiene: #{@mouth_hygiene}<br>
-      fit: #{@fit}<br>
-      hp: #{@hp}<br>
+      <p style="font-family:'Courier New'; text-align: center">full: #{@full}</p>
+      <p style="font-family:'Courier New'; text-align: center">energy: #{@energy}</p>
+      <p style="font-family:'Courier New'; text-align: center">mood: #{@mood}</p>
+      <p style="font-family:'Courier New'; text-align: center">love: #{@love}</p>
+      <p style="font-family:'Courier New'; text-align: center">socialized: #{@socialized}</p>
+      <p style="font-family:'Courier New'; text-align: center">hygiene: #{@hygiene}</p>
+      <p style="font-family:'Courier New'; text-align: center"> tidy: #{@tidy}</p>
+      <p style="font-family:'Courier New'; text-align: center">mouth hygiene: #{@mouth_hygiene}</p>
+      <p style="font-family:'Courier New'; text-align: center">fit: #{@fit}</p>
+      <p style="font-family:'Courier New'; text-align: center">hp: #{@hp}</p>
     INFO
     info += if @full <= 2 && @mouth_hygiene <= 2
-              '💀'
+              '<p style="text-align: center; font-size: 80px">Unfortunately, your pandagotchi is dead <br>💀</p>'
             else
-              '🐼'
+              '<p style="text-align: center; font-size: 80px;">Your pandagotchi is still alive <br>🐼</p>'
             end
     info
   end
