@@ -5,6 +5,10 @@ With the updated version, it is possible to see the vitals of your **pandagotchi
 ------------------------------------------------------------------------------------------------------------
 
 ### Example
+Please run the following before running a **pandagotchi**:
+```
+bundle install
+```
 
 To run a **pandagotchi**, please run:
 ```

@@ -123,16 +123,18 @@ class Panda
     @hp += rand(-5..5)
     check_if_healthy
     puts info
-    HTMLSaver.save(info, file_name: 'index.html', bypass_html: true)
+    HTMLSaver.save(info, bypass_html: true)
+    if @full <= 5
+      puts "#{@name} is deadly hungry. It gets sophisticated and takes the monastic vows..."
+      exit
+    elsif @mouth_hygiene <= 5
+      puts "#{@name} is not able to stand its mouth stinking. It drinks the mouthwash and joins the majority..."
+      exit
+    end
   end
 
   def check_if_full
-    if @full < 10 && @full > 2
-      puts "#{@name} asks for some more bamboo."
-    elsif @full <= 2
-      puts "#{@name} is deadly hungry. It gets sophisticated and takes the monastic vows."
-      exit
-    end
+    puts "#{@name} asks for some more bamboo." if @full < 10 && @full > 2
   end
 
   def check_if_sleepy
@@ -184,12 +186,7 @@ class Panda
   end
 
   def check_mouth_hygiene
-    if @mouth_hygiene < 10 && @mouth_hygiene > 2
-      puts "#{@name} gets such a smell from the mouth! Brushing teeth might help to get rid of it."
-    elsif @mouth_hygiene <= 2
-      puts "#{@name} is not able to stand its mouth stinking. It drinks the mouthwash and joins the majority."
-      exit
-    end
+    puts "#{@name} gets such a smell from the mouth! Brushing teeth might help to get rid of it." if @mouth_hygiene < 10 && @mouth_hygiene > 2
   end
 
   def check_if_fit
@@ -221,10 +218,12 @@ class Panda
       <p style="font-family:'Courier New'; text-align: center">fit: #{@fit}</p>
       <p style="font-family:'Courier New'; text-align: center">hp: #{@hp}</p>
     INFO
-    info += if @full <= 2 && @mouth_hygiene <= 2
-              '<p style="text-align: center; font-size: 80px">Unfortunately, your pandagotchi is dead <br>💀</p>'
+    info += if @full <= 5
+              '<p style="text-align: center; font-family:\'Courier New\'; font-size: 40px">Your pandagotchi is deadly hungry. It gets sophisticated and takes the monastic vows...<br>💀</p>'
+            elsif @mouth_hygiene <= 5
+              '<p style="text-align: center; font-family:\'Courier New\'; font-size: 40px">Your pandagotchi is not able to stand its mouth stinking. It drinks the mouthwash and joins the majority...<br>💀</p>'
             else
-              '<p style="text-align: center; font-family:\'Courier New\'; font-size: 80px;">Your pandagotchi is still alive <br>🐼</p>'
+              '<p style="text-align: center; font-family:\'Courier New\'; font-size: 40px">Your pandagotchi is still alive living a happy life.<br>🐼</p>'
             end
     info
   end
