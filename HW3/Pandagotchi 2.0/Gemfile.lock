@@ -1,12 +1,13 @@
 GIT
   remote: https://github.com/KateHaman/html_saver
-  revision: e34ed516bb89577addd572c5e2b2e789814eff86
+  revision: d56fe163724a9eeae284def130a3202d1a133e07
   branch: main
   specs:
     html_saver (0.0.1)
       sanitize
 
 GEM
+  remote: https://rubygems.org/
   specs:
     crass (1.0.6)
     nokogiri (1.12.5-x86_64-linux)
@@ -23,4 +24,4 @@ DEPENDENCIES
   html_saver!
 
 BUNDLED WITH
-   2.2.3
+   2.2.32
