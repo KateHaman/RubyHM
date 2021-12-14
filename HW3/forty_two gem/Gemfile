@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'forty_two', require: false
+gem 'forty_two', git: 'https://github.com/KateHaman/RubyHM/tree/main/HW3/forty_two%20gem', branch: 'main'
