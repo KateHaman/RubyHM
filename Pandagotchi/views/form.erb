@@ -1,0 +1,15 @@
+<html lang="en">
+<body>
+<div style="padding: 30px; margin: 30px">
+<h1 style="font-size: 25px">Please enter the name for your pandagotchi:</h1>
+<form><label>
+  <input type="text" name="name">
+</label><input type="submit"></form>
+<p style="color: red"><%= if @name.nil? or @name.empty?
+         session[:message] = "You need to enter a name."
+       else
+         redirect "/start?name=#{@name}"
+       end %></p>
+</div>
+</body>
+</html>
