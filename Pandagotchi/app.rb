@@ -41,27 +41,47 @@ end
 
 get '/feed' do
   panda.feed
-  redirect 'info'
+  if panda.hp <= 0 || panda.thirsty <= 0
+    redirect 'death'
+  else
+    redirect 'info'
+  end
 end
 
 get '/drink' do
   panda.drink
-  redirect 'info'
+  if panda.hp <= 0 || panda.happy <= 0
+    redirect 'death'
+  else
+    redirect 'info'
+  end
 end
 
 get '/sleep' do
   panda.sleep
-  redirect 'info'
+  if panda.hp <= 0 || panda.clean <= 0
+    redirect 'death'
+  else
+    redirect 'info'
+  end
 end
 
 get '/wash' do
   panda.wash
-  redirect 'info'
+  if panda.hp <= 0 || panda.full <= 0
+    redirect 'death'
+  else
+    redirect 'info'
+  end
 end
 
 get '/play' do
   panda.play
-  redirect 'info'
+  if panda.hp <= 0 || panda.sleepy <= 0
+    redirect 'death'
+  else
+    redirect 'info'
+  end
 end
 
 get '/tidy_panda' do
