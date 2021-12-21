@@ -43,6 +43,8 @@ get '/feed' do
   panda.feed
   if panda.hp <= 0 || panda.thirsty <= 0
     redirect 'death'
+  elsif panda.full == 100
+    redirect 'success'
   else
     redirect 'info'
   end
@@ -52,6 +54,8 @@ get '/drink' do
   panda.drink
   if panda.hp <= 0 || panda.happy <= 0
     redirect 'death'
+  elsif panda.thirsty == 100
+    redirect 'success'
   else
     redirect 'info'
   end
@@ -61,6 +65,8 @@ get '/sleep' do
   panda.sleep
   if panda.hp <= 0 || panda.clean <= 0
     redirect 'death'
+  elsif panda.sleepy == 100
+    redirect 'success'
   else
     redirect 'info'
   end
@@ -70,6 +76,8 @@ get '/wash' do
   panda.wash
   if panda.hp <= 0 || panda.full <= 0
     redirect 'death'
+  elsif panda.clean == 100
+    redirect 'success'
   else
     redirect 'info'
   end
@@ -79,6 +87,8 @@ get '/play' do
   panda.play
   if panda.hp <= 0 || panda.sleepy <= 0
     redirect 'death'
+  elsif panda.happy == 100
+    redirect 'success'
   else
     redirect 'info'
   end
@@ -112,4 +122,8 @@ end
 get '/death' do
   @name = params['name']
   erb :death
+end
+
+get '/success' do
+  erb :success
 end

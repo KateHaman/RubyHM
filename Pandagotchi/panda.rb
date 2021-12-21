@@ -11,70 +11,75 @@ class Panda
     @happy = 50
   end
 
+  def passage_of_time
+    @hp -= 10 if @hp.positive? && @hp != 100
+    @full -= 10 if @full.positive? && @full != 100
+    @thirsty -= 10 if @thirsty.positive? && @thirsty != 100
+    @sleepy -= 10 if @sleepy.positive? && @sleepy != 100
+    @clean -= 10 if @clean.positive? && @clean != 100
+    @happy -= 10 if @happy.positive? && @happy != 100
+  end
+
+  def please
+    @happy += 90 if @happy == 10
+    @happy += 80 if @happy == 20
+    @happy += 70 if @happy == 30
+    @happy += 60 if @happy == 40
+    @happy += 50 if @happy == 50
+    @happy += 40 if @happy == 60
+    @happy += 30 if @happy == 70
+    @happy += 20 if @happy == 80
+    @happy += 10 if @happy == 90
+    @happy += 0 if @happy == 100
+  end
+
+  def upset
+    @happy -= 90 if @happy == 100
+    @happy -= 80 if @happy == 90
+    @happy -= 70 if @happy == 80
+    @happy -= 60 if @happy == 70
+    @happy -= 50 if @happy == 60
+    @happy -= 40 if @happy == 50
+    @happy -= 30 if @happy == 40
+    @happy -= 20 if @happy == 30
+    @happy -= 10 if @happy == 20
+    @happy -= 0 if @happy == 10
+  end
+
   def feed
-    @full += 10 if @full < 100
-    @happy += 10 if @happy < 100
-    @hp += 10 if @hp < 100
-    @thirsty -= 10 if @thirsty.positive?
-    @sleepy -= 10 if @sleepy.positive?
-    @clean -= 10 if @clean.positive?
+    @full += 20 if @full <= 80
+    passage_of_time
   end
 
   def drink
-    @thirsty += 10 if @thirsty < 100
-    @full += 10 if @full < 100
-    @hp += 10 if @hp < 100
-    @clean += 10 if @clean < 100
-    @happy -= 10 if @happy.positive?
-    @sleepy -= 10 if @sleepy.positive?
+    @thirsty += 20 if @thirsty <= 80
+    passage_of_time
   end
 
   def sleep
-    @sleepy += 10 if @sleepy < 100
-    @happy += 10 if @happy < 100
-    @hp += 10 if @hp < 100
-    @full -= 10 if @full.positive?
-    @thirsty -= 10 if @thirsty.positive?
-    @clean -= 10 if @clean.positive?
+    @sleepy += 20 if @sleepy <= 80
+    passage_of_time
   end
 
   def wash
-    @clean += 10 if @clean < 100
-    @thirsty += 10 if @thirsty < 100
-    @hp -= 10 if @hp.positive?
-    @sleepy -= 10 if @sleepy.positive?
-    @happy -= 10 if @happy.positive?
-    @full -= 10 if @full.positive?
+    @clean += 20 if @clean <= 80
+    passage_of_time
   end
 
   def play
-    @happy += 10 if @happy < 100
-    @hp -= 10 if @hp.positive?
-    @full -= 10 if @full.positive?
-    @thirsty -= 10 if @thirsty.positive?
-    @sleepy -= 10 if @sleepy.positive?
-    @clean -= 10 if @clean.positive?
+    @happy += 20 if @happy <= 80
+    passage_of_time
   end
 
   def comb
-    @happy -= 10 if @happy.positive?
-    @clean += 10 if @clean < 100
-    @sleepy -= 10 if @sleepy.positive?
-    @hp -= 10 if @hp.positive?
+    upset
   end
 
   def hug
-    @happy += 10 if @happy < 100
-    @clean += 10 if @clean < 100
-    @hp += 10 if @hp < 100
-    @full += 10 if @full < 100
-    @thirsty += 10 if @thirsty < 100
-    @sleepy += 10 if @sleepy < 100
+    please
   end
 
   def brush
-    @happy += 10 if @happy < 100
-    @clean += 10 if @clean < 100
-    @hp += 10 if @hp < 100
+    please
   end
 end
