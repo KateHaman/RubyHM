@@ -19,3 +19,5 @@ Metrics/PerceivedComplexity:
   Enabled: false
 Metrics/CyclomaticComplexity:
   Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
