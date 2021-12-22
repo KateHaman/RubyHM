@@ -1,16 +1,23 @@
 <html lang="en">
 <body>
-<div style="padding: 30px; margin: 30px">
-  <h1><%= "#{panda.name} cant stand its mouth stinking..." %></h1>
-  <h3>Would you like to brush its teeth?</h3>
-  <img src="https://u.makeup.com.ua/t/th/thqqzo8rbko0.jpg" alt="lacalut for kids" width="400" height="100">
+<div class="container" style="align-items: center; margin-top: 150px; max-width: 600px">
+  <h1 style="font-size: 1.5rem; text-align: center; margin:0 auto; display:block" class="alert alert-dark"><%= "#{panda.name} cant stand its mouth stinking..." %></h1>
   <div><br/></div>
-  <form action="/brush" method="get">
-    <button type="submit">Brush the Teeth 💪</button>
-  </form>
-  <form action="/death" method="get">
-    <button type="submit">Ignore Panda</button>
-  </form>
+  <h3 style="font-size: 1rem; text-align: center; margin:0 auto; display:block" class="alert alert-secondary">
+    Would you like to brush its teeth?</h3>
+  <div><br/></div>
+  <img style="width:400px; margin:0 auto; display:block" src="https://u.makeup.com.ua/t/th/thqqzo8rbko0.jpg" alt="lacalut for kids">
+  <div><br/></div>
+  <div style="width: 441px; margin:0 auto; display:block">
+    <form style="display: inline" action="/brush" method="get">
+      <button style="margin-left: 60px; margin-right: 30px" type="submit" class="btn btn-dark">Brush the Teeth
+        💪
+      </button>
+    </form>
+    <form style="display: inline" action="/death" method="get">
+      <button type="submit" class="btn btn-dark">Ignore Panda</button>
+    </form>
+  </div>
 </div>
 </body>
 </html>

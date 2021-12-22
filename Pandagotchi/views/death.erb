@@ -1,11 +1,14 @@
 <html lang="en">
 <body>
-<div style="padding: 30px; margin: 30px">
-  <h1><%= "#{panda.name} joins the majority..." %></h1>
-  <img src="https://www.pngitem.com/pimgs/m/515-5151513_panda-webarebears-osopanda-oso-dead-cute-blackandwhite-dead.png" alt="dead panda" width="350" height="200">
-  <div><br/></div>
+<div class="container" style="align-items: center; margin-top: 150px; max-width: 600px">
+  <div style="margin-bottom: 30px">
+    <h1 style="font-size: 1.5rem; text-align: center; margin:0 auto; display:block" class="alert alert-dark"><%= "#{panda.name} joins the majority..." %></h1>
+  </div>
+  <div style="margin-bottom: 30px">
+    <img style="width: 400px; margin:0 auto; display:block" src="https://www.pngitem.com/pimgs/m/515-5151513_panda-webarebears-osopanda-oso-dead-cute-blackandwhite-dead.png" alt="dead panda">
+  </div>
   <form action="/" method="get">
-    <button type="submit">Try again</button>
+    <button style="margin:0 auto; display:block" class="btn btn-dark" type="submit">Try again</button>
   </form>
 </div>
 </body>

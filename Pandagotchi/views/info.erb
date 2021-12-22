@@ -1,35 +1,43 @@
 <html lang="en">
 <body>
-<div style="margin: 40px">
-  <h1 style="font-size: 25px"><%= "#{panda.name} is living a happy life:" %></h1>
-  <img src="https://media.istockphoto.com/vectors/cute-panda-character-vector-design-vector-id1195743934?k=20&m=1195743934&s=612x612&w=0&h=oo95OC05gi1Rr48Ft3gqojI2yZHfuvKoD2zfbzxwqOg=" alt="panda" width="250" height="250">
-  <p><%= "hp: #{panda.hp}" %><p>
-  <p><%= "full: #{panda.full}" %></p>
-  <p><%= "thirsty: #{panda.thirsty}" %></p>
-  <p><%= "sleepy: #{panda.sleepy}" %></p>
-  <p><%= "clean: #{panda.clean}" %></p>
-  <p><%= "happy: #{panda.happy}" %></p>
-  <form action="/feed" method="get">
-    <button type="submit">Feed</button>
-  </form>
-  <form action="/drink" method="get">
-    <button type="submit">Drink</button>
-  </form>
-  <form action="/sleep" method="get">
-    <button type="submit">Sleep</button>
-  </form>
-  <form action="/wash" method="get">
-    <button type="submit">Wash</button>
-  </form>
-  <form action="/play" method="get">
-    <button type="submit">Play</button>
-  </form>
-  <form action="/tidy_panda" method="get">
-    <button type="submit">Comb out!</button>
-  </form>
-  <form action="/clean_mouth" method="get">
-    <button type="submit">Brush Teeth!</button>
-  </form>
+<div class="container" style="align-items: center; margin-top: 50px; max-width: 600px">
+  <h1 style="font-size: 1.5rem; width: 600px; margin:0 auto; display:block; text-align: center" class="alert alert-dark"><%= "#{panda.name} is living a happy life:" %></h1>
+  <img style="margin:0 auto; display:block; width:300px; height: 300px" src="https://media.istockphoto.com/vectors/cute-panda-character-vector-design-vector-id1195743934?k=20&m=1195743934&s=612x612&w=0&h=oo95OC05gi1Rr48Ft3gqojI2yZHfuvKoD2zfbzxwqOg=" alt="panda">
+  <div style="width: 600px; margin:0 auto; display:block" class="text-white bg-dark">
+    <p style="text-align: center; padding: 20px">
+      <%= "hp: #{panda.hp}" %><br/>
+      <%= "full: #{panda.full}" %><br/>
+      <%= "thirsty: #{panda.thirsty}" %><br/>
+      <%= "sleepy: #{panda.sleepy}" %><br/>
+      <%= "clean: #{panda.clean}" %><br/>
+      <%= "happy: #{panda.happy}" %><br/>
+    </p>
+  </div>
+  <div style="width: 600px; margin:0 auto; display:block">
+    <form style="display: inline" action="/feed" method="get">
+      <button style="margin-right: 7px" type="submit" class="btn btn-secondary">Feed</button>
+    </form>
+    <form style="display: inline" action="/drink" method="get">
+      <button style="margin-right: 6px" type="submit" class="btn btn-secondary">Drink</button>
+    </form>
+    <form style="display: inline" action="/sleep" method="get">
+      <button style="margin-right: 7px" type="submit" class="btn btn-secondary">Sleep</button>
+    </form>
+    <form style="display: inline" action="/wash" method="get">
+      <button style="margin-right: 7px" type="submit" class="btn btn-secondary">Wash</button>
+    </form>
+    <form style="display: inline" action="/play" method="get">
+      <button style="margin-right: 7px" type="submit" class="btn btn-secondary">Play</button>
+    </form>
+    <form style="display: inline" action="/tidy_panda" method="get">
+      <button style="margin-right: 7px" type="submit" class="btn btn-dark">Comb
+        out!
+      </button>
+    </form>
+    <form style="display: inline" action="/clean_mouth" method="get">
+      <button type="submit" class="btn btn-dark">Brush Teeth!</button>
+    </form>
+  </div>
 </div>
 </body>
 </html>

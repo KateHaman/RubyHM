@@ -1,15 +1,20 @@
 <html lang="en">
 <body>
-<div style="padding: 30px; margin: 30px">
-<h1 style="font-size: 25px">Please enter the name for your pandagotchi:</h1>
-<form><label>
-  <input type="text" name="name">
-</label><input type="submit"></form>
-<p style="color: red"><%= if @name.nil? or @name.empty?
-         session[:message] = "You need to enter a name."
-       else
-         redirect "/start?name=#{@name}"
-       end %></p>
+<div class="container" style="align-items: center; margin-top: 150px; max-width: 600px">
+  <h1 style="font-size: 1.5rem" class="alert alert-dark">Please enter the name for your pandagotchi:</h1>
+  <form class="form-inline">
+    <div class="form-group mb-2">
+      <label for="name" class="sr-only">Name</label>
+      <input style="width: 494px" type="text" class="form-control" id="name" placeholder="Name" name="name">
+    </div>
+    <button type="submit" class="btn btn-dark mb-2">Submit</button>
+    <small id="help" class="form-text text-muted">Pandagotchi understands English only.</small>
+  </form>
+  <p class="alert alert-danger"><%= if @name.nil? or @name.empty?
+                                      session[:message] = "You need to enter a name."
+                                    else
+                                      redirect "/start?name=#{@name}"
+                                    end %></p>
 </div>
 </body>
 </html>
