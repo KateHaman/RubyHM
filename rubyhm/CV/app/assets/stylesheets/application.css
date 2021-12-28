@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+* {
+    color: #2E2F30;
+    background-color: lightgrey;
+    font-family: Varela Round, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: 30px;
+    background-color: transparent;
+}
+
+h3 {
+    font-size: 20px;
+    background-color: transparent;
+}
+
+h5 {
+    font-size: 18px;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+
+h6 {
+    font-size: 16px;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 16px;
+    padding-top: 10px;
+    background-color: transparent;
+    margin: 0;
+}
+
+.fa {
+    background-color: transparent;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+ul {
+    background-color: transparent;
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+li {
+    background-color: transparent;
+}
+
+.solid {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.row {
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+.column-left {
+    padding: 0;
+    width: 30%;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.left-column-card {
+    box-shadow: 0 4px 10px 0;
+}
+
+img {
+    width: 100%;
+    border-style: none;
+    background-color: transparent;
+}
+
+.image-wrapper {
+    background-color: lightgoldenrodyellow;
+}
+
+.contact-info {
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    overflow-wrap: break-word;
+}
+
+.icon-with-text {
+    background-color: transparent;
+}
+
+.skills {
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    overflow-wrap: break-word;
+}
+
+.text-with-icon {
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.languages {
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    overflow-wrap: break-word;
+}
+
+.hobbies {
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    overflow-wrap: break-word;
+}
+
+.column-right {
+    margin-left: 10px;
+    width: 69.2%;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+.right-column-card {
+    box-shadow: 0 4px 10px 0;
+    margin-bottom: 10px;
+}
+
+.education {
+    padding: 20px;
+    background-color: whitesmoke;
+    overflow-wrap: break-word;
+}
+
+.big-icon-with-text {
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.education-item {
+    background-color: transparent;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.date-icon-with-text {
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.experience {
+    padding: 20px;
+    background-color: whitesmoke;
+    overflow-wrap: break-word;
+}
+
+.experience-item {
+    background-color: transparent;
+    padding-bottom: 20px;
+    padding-top: 20px
+}
