@@ -6172,3 +6172,13 @@ Processing by CvController#index as HTML
 Completed 200 OK in 99ms (Views: 91.8ms | ActiveRecord: 0.0ms | Allocations: 40677)
 
 
+Started GET "/" for ::1 at 2021-12-28 23:23:02 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CvController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering cv/index.html.erb within layouts/application
+  Rendered cv/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 701)
+  Rendered layout layouts/application.html.erb (Duration: 127.3ms | Allocations: 48415)
+Completed 200 OK in 141ms (Views: 132.2ms | ActiveRecord: 0.0ms | Allocations: 53684)
+
+
