@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    crass (1.0.6)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.6.0)
+    sanitize (6.0.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  sanitize
+
+BUNDLED WITH
+   2.2.3
