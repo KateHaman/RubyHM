@@ -16,5 +16,3 @@ require 'faker'
     birthday: Faker::Date.birthday(min_age: 16, max_age: 100)
   )
 end
-
-end
