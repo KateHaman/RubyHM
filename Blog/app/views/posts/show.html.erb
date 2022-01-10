@@ -23,14 +23,13 @@
     <div class="info-container">
       <p>
         <strong>Date:</strong>
-        <%= @post.created_at.strftime("%a, %m/%d/%y")  %>
+        <%= @post.created_at.strftime("%a, %m/%d/%y, %r") %>
       </p>
 
       <p>
         <strong>Author:</strong>
         <%= @post.author.full_name %>
       </p>
-
 
       <p>
         <strong>Content:</strong>
