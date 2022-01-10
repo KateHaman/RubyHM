@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="new-post-page-header">
+    <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
+      <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
+    </div>
+    <h1>New Post</h1>
+  </div>
+  <%= render 'form', post: @post %>
+</div>
+

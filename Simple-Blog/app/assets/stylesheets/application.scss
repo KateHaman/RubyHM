@@ -1,0 +1,99 @@
+@import 'bootstrap-custom';
+
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-post-page-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header-btn {
+  align-self: center;
+}
+
+.header-btns {
+  align-self: center;
+}
+
+.form {
+justify-content: center;
+  display: flex;
+  margin-top: 10px;
+}
+
+table {
+  table-layout: auto;
+}
+
+.table-bordered {
+
+  th,
+  td {
+    border: 1px solid $gray-300;
+  }
+}
+
+.outer {
+  width: 100%;
+}
+
+.inner {
+  display: inline-block;
+}
+
+
+#error_explanation {
+  color: #f00;
+}
+
+.post-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+#notice {
+  margin: 16px 0;
+  font-weight: bold;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.card {
+  width: 560px;
+}
+
+.form-label {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.form-select {
+  display: inline-block;
+  width: auto;
+}
+
+.form-control {
+  display: inline-block;
+  width: auto;
+}
+
+.mb-3 {
+ text-align: center;
+}
+
+.actions {
+  text-align: center;
+}
