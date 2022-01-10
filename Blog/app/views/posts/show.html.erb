@@ -23,7 +23,7 @@
     <div class="info-container">
       <p>
         <strong>Date:</strong>
-        <%= @post.created_at %>
+        <%= @post.created_at.strftime("%a, %m/%d/%y")  %>
       </p>
 
       <p>
