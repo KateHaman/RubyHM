@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
-  belongs_to :author, optional: true
+  belongs_to :author
+  has_many :comments, dependent: :destroy
+  has_many :views
 
-  validates :title, presence: true, length: { in: 5..100 }, uniqueness: true
-  validates :content, presence: true, uniqueness: true, length: { minimum: 10 }
-  validates :image, presence:true
+  validates :title, :content, :image, presence: true
+  validates :title, :content, uniqueness: true
+  validates :content, length: { minimum: 10 }
+  validates :title, length: { in: 5..100 }
+
 end

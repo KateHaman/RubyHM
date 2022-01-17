@@ -3,7 +3,6 @@
     <% if post.errors.any? %>
       <div id="error_explanation">
         <h2>Please correct <%= pluralize(post.errors.count, "error") %> to save this post:</h2>
-
         <ul>
           <% post.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -22,17 +21,17 @@
 
         <div class="mb-3">
           <%= form.label :title, class: "form-label" %>
-          <%= form.text_field :title, class: "input", placeholder: "Title" %>
+          <%== form.text_field :title, class: "input", placeholder: "Title" %>
         </div>
 
         <div class="mb-3">
           <%= form.label :image, class: "form-label" %>
-          <%= form.text_field :image, class: "input", placeholder: "Image Url" %>
+          <%== form.text_field :image, class: "input", placeholder: "Image Url" %>
         </div>
 
         <div class="mb-3">
           <%= form.label :content, class: "form-label" %>
-          <%= form.text_area :content, class: "input", placeholder: "Content" %>
+          <%== form.text_area :content, class: "input", placeholder: "Content" %>
         </div>
 
         <div class="actions">

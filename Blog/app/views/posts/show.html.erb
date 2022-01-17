@@ -14,6 +14,8 @@
     </div>
   </div>
 
+  <h4>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</h4>
+
   <p id="notice"><%= notice %></p>
 
   <div class="post-container">
@@ -36,5 +38,17 @@
         <%= @post.content %>
       </p>
     </div>
+  </div>
+  <div class="comments-container">
+    <div class="comments-select">
+      <h2>Show such comments:</h2>
+      <%= select_tag "status", options_for_select([['Published', 1], ['Unpublished', 0]], @comments_scope || 1), :onchange => ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();") %>
+    </div>
+    <h3><%= pluralize(@comments.size, "comment") %> available.</h3>
+    <%= render @comments %>
+  </div>
+  <div class="create-comment-container">
+    <h2>Leave your comment:</h2>
+    <%= render 'comments/form' %>
   </div>
 </div>

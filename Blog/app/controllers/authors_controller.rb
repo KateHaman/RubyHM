@@ -1,5 +1,4 @@
 class AuthorsController < ApplicationController
-
   def show; end
 
   def new
@@ -23,7 +22,6 @@ class AuthorsController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @author.update(author_params)
         format.html { redirect_to author_path(@author), notice: 'Author was successfully updated.' }

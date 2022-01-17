@@ -8,7 +8,7 @@
 
 .new-post-page-header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .header-btn {
@@ -19,6 +19,9 @@
   align-self: center;
 }
 
+.btn {
+  font-weight: bold;
+}
 .form {
 justify-content: center;
   display: flex;
@@ -38,7 +41,7 @@ table {
 }
 
 .outer {
-  width: 100%;
+  width: 131px;
 }
 
 .inner {
@@ -98,5 +101,32 @@ p {
 }
 
 .actions {
+  text-align: center;
+}
+
+.comments-container {
+  width: 600px;
+}
+
+.comments-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.h4 {
+  margin: 0 !important;
+}
+
+.card {
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.new-post-submit-btn {
   text-align: center;
 }

@@ -15,3 +15,6 @@ ActiveStorage.start()
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+require("trix")
+require("@rails/actiontext")

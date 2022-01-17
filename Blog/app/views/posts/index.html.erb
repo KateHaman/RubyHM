@@ -4,7 +4,7 @@
     <div class="header-btn"><%= link_to 'New Post', new_post_path, class: "btn btn-dark" %></div>
   </div>
 
-  <p id="notice" ><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
   <table class="table table-light table-bordered table-striped table-hover">
     <thead>
@@ -13,7 +13,8 @@
       <th scope="col">Title</th>
       <th scope="col">Content</th>
       <th scope="col">Image</th>
-      <th scope="col"></th>
+      <th scope="col">Viewed</th>
+      <th scope="col">Actions</th>
     </tr>
     </thead>
 
@@ -24,6 +25,7 @@
         <td data-bs-toggle="tooltip" title="Show a post"><%= link_to post.title, post, class: "link-dark" %></td>
         <td><%= post.content %></td>
         <td><%= image_tag(post.image, width: '200', class: "mx-auto d-block") %></td>
+        <td><%= post.views_count %> times</td>
         <td>
           <div class="outer">
             <div class="inner" data-bs-toggle="tooltip" title="Show a post">
