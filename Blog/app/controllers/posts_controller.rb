@@ -8,11 +8,11 @@ class PostsController < ApplicationController
 
   def show
     @comments_scope = params[:comments]
-    if @comments_scope == '0'
-      @comments = @post.comments.unpublished
-    else
-      @comments = @post.comments.published
-    end
+    @comments = if @comments_scope == '0'
+                  @post.comments.unpublished
+                else
+                  @post.comments.published
+                end
   end
 
   def new
