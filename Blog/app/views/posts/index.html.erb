@@ -13,7 +13,7 @@
       <th scope="col">Title</th>
       <th scope="col">Content</th>
       <th scope="col">Image</th>
-      <th scope="col">Viewed</th>
+      <th scope="col">Views Count</th>
       <th scope="col">Actions</th>
     </tr>
     </thead>
@@ -25,7 +25,7 @@
         <td data-bs-toggle="tooltip" title="Show a post"><%= link_to post.title, post, class: "link-dark" %></td>
         <td><%= post.content %></td>
         <td><%= image_tag(post.image, width: '200', class: "mx-auto d-block") %></td>
-        <td><%= post.views_count %> times</td>
+        <td class="views-count"><%= post.views_count %></td>
         <td>
           <div class="outer">
             <div class="inner" data-bs-toggle="tooltip" title="Show a post">
