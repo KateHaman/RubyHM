@@ -11,31 +11,28 @@
       </div>
     <% end %>
 
-    <div class="card">
-      <div class="card-body">
+    <div class="posts-form">
+      <div class="card">
+        <div class="card-body">
 
-        <div class="mb-3">
-          <%= form.label :author, class: "form-label" %>
-          <%= form.select :author_id, Author.all.collect { |a| [a.full_name, a.id] }, class: "form-select" %>
-        </div>
+          <div class="mb-3">
+            <%= form.label :title, class: "form-label" %>
+            <%== form.text_field :title, class: "form-control", placeholder: "Title" %>
+          </div>
 
-        <div class="mb-3">
-          <%= form.label :title, class: "form-label" %>
-          <%== form.text_field :title, class: "input", placeholder: "Title" %>
-        </div>
+          <div class="mb-3">
+            <%= form.label :image, class: "form-label" %>
+            <%== form.text_field :image, class: "form-control", placeholder: "Image Url" %>
+          </div>
 
-        <div class="mb-3">
-          <%= form.label :image, class: "form-label" %>
-          <%== form.text_field :image, class: "input", placeholder: "Image Url" %>
-        </div>
+          <div class="mb-3">
+            <%= form.label :content, class: "form-label" %>
+            <%== form.text_area :content, class: "form-control", placeholder: "Content" %>
+          </div>
 
-        <div class="mb-3">
-          <%= form.label :content, class: "form-label" %>
-          <%== form.text_area :content, class: "input", placeholder: "Content" %>
-        </div>
-
-        <div class="actions">
-          <%= form.submit "Submit", class: "btn btn-dark" %>
+          <div class="actions">
+            <%= form.submit "Submit", class: "btn btn-dark" %>
+          </div>
         </div>
       </div>
     </div>

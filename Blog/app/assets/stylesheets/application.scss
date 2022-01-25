@@ -1,6 +1,5 @@
 @import 'bootstrap-custom';
 
-
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -22,8 +21,9 @@
 .btn {
   font-weight: bold;
 }
+
 .form {
-justify-content: center;
+  justify-content: center;
   display: flex;
   margin-top: 10px;
 }
@@ -50,6 +50,7 @@ table {
 
 #error_explanation {
   color: #f00;
+
   ul {
     list-style: none;
     margin: 0 0 18px 0;
@@ -97,7 +98,11 @@ p {
 }
 
 .mb-3 {
- text-align: center;
+  width: 150px;
+}
+
+.posts-form {
+  text-align: center;
 }
 
 .actions {
@@ -132,5 +137,77 @@ p {
 }
 
 .views-count {
+  text-align: center;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-success {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.btn-info {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.btn-danger {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.header-text {
+  font-weight: bold;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.h8 {
+  font-weight: normal;
+  margin: 0
+}
+
+.comments-buttons {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+
+.comment-form {
+  width: 600px;
+}
+
+.sign-up-field {
+  margin-bottom: 10px;
+}
+
+.edit-profile-field {
+  margin-bottom: 10px;
+}
+
+.log-in-field {
+  margin-bottom: 10px;
+}
+
+.sign-up-btn {
+  padding-top: 10px;
+  text-align: center;
+  width: 233px
+}
+
+.profile-info-item {
+  padding-bottom: 10px;
+}
+
+.edit-profile-btn {
+  width: 233px;
+  text-align: center;
+}
+
+.log-in-btn {
+  width: 233px;
   text-align: center;
 }

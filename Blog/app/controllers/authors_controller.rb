@@ -1,54 +1,41 @@
 class AuthorsController < ApplicationController
-  def show; end
+  before_action :authorize, only: %i[edit update show]
 
   def new
     @author = Author.new
   end
 
-  def edit; end
-
   def create
     @author = Author.new(author_params)
-
-    respond_to do |format|
-      if @author.save
-        format.html { redirect_to author_path(@author), notice: 'Author was successfully created.' }
-        format.json { render :show, status: :created, location: @author }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
-      end
+    if @author.save
+      session[:author_id] = @author.id
+      redirect_to root_url, notice: 'Thank you for signing up!'
+    else
+      render 'new'
     end
+  end
+
+  def show
+    @author = Author.find(params[:id])
+    redirect_back fallback_location: root_path, notice: 'Please log in to go to your profile page.' if current_author.nil?
+  end
+
+  def edit
+    @author = Author.find(params[:id])
   end
 
   def update
-    respond_to do |format|
-      if @author.update(author_params)
-        format.html { redirect_to author_path(@author), notice: 'Author was successfully updated.' }
-        format.json { render :show, status: :ok, location: @author }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
-      end
+    if current_author.update(author_params)
+      redirect_to author_url(current_author), notice: 'Author was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    @author.destroy
-
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Author was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_back fallback_location: root_path, notice: 'Please log in to edit your profile page.' if current_author.nil?
   end
 
   private
 
-  def set_author
-    @author = Author.find(params[:id])
-  end
-
   def author_params
-    params.require(:author).permit(:first_name, :last_name, :gender, :birthday)
+    params.require(:author).permit(:first_name, :last_name, :email, :password, :password_confirmation, :image)
   end
 end

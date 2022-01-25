@@ -1,38 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
-  <div class="d-flex flex-row align-items-center">
-    <div class="button-1">
-      <div data-bs-toggle="tooltip" title="Back to posts">
-        <%= link_to 'Back', posts_path, :class => "btn btn-dark" %>
-      </div>
+<h1>Profile</h1>
+  <div class="profile-info">
+    <div class="profile-image">
+    <% if current_author.image.present? %>
+      <%= image_tag(@author.image, width: '200', class: "rounded-circle") %>
+      <% else %>
+      <%= image_tag('https://i.stack.imgur.com/l60Hf.png', width: '200') %>
+      <% end %>
     </div>
-    <!--    <div class="button-2">-->
-    <!--      <div data-bs-toggle="tooltip" title="Edit a post">-->
-    <%#= link_to 'Edit', edit_post_path(@post), :class => "btn btn-dark" %>
-    <!--      </div>-->
-    <!--    </div>-->
-    <!--    <div class="button-3">-->
-    <!--      <div data-bs-toggle="tooltip" title="Destroy a post">-->
-    <%#= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-dark" %>
-    <!--      </div>-->
-    <!--    </div>-->
+    <div class="profile-info-item">
+      <strong>Name:</strong>
+      <%= current_author.full_name %>
+    </div>
+    <% if current_author %>
+    <%= link_to 'Edit', edit_author_path(current_author), class: "btn btn-warning" %>
+    <% end %>
   </div>
-
-  <div class="show-container">
-    <p>
-      <strong>Author:</strong>
-      <%= @post.author.full_name %>
-    </p>
-
-    <p>
-      <strong>Gender:</strong>
-      <%= @post.author.gender %>
-    </p>
-
-    <p>
-      <strong>Birthday:</strong>
-      <%= @post.author.birthday %>
-    </p>
-  </div>
-</div>

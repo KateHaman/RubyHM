@@ -1,9 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   after_action :track_view, only: :show
+  before_action :authorize, only: %i[edit update create new]
+  before_action :author?, only: %i[edit update destroy]
+  before_action :track_visit, only: %i[index show]
 
   def index
     @posts = Post.includes(:author).order(created_at: :desc)
+  end
+
+  def search
+    @posts = Post.where('title LIKE ?', "%#{params[:q]}%")
   end
 
   def show
@@ -16,10 +23,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.includes(:author).new
   end
 
-  def edit; end
+  def edit
+    if current_author == @post.author
+    end
+  end
 
   def create
     @post = Post.new(post_params)
@@ -48,11 +58,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    if current_author == @post.author
+      @post.destroy
 
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -63,10 +75,14 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image, :author_id)
+    params.require(:post).permit(:title, :content, :image).merge(author_id: current_author.id)
   end
 
   def track_view
     @post.views.create
+  end
+
+  def track_visit
+    cookies[:visits_count] = cookies[:visits_count].to_i + 1
   end
 end

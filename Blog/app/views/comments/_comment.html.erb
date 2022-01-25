@@ -2,11 +2,26 @@
   <div class="card-body">
     <div class="comment-header">
       <h4>Comment by: <%= @post.author.full_name %></h4>
-      <h4>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</h4>
+      <h4><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h4>
     </div>
-    <h4>Comment: <%= comment.body %> </h4>
-    <% if comment.unpublished? %>
-      <%= link_to "Publish", post_comment_path(@post, comment, status: 1), method: :put, class: "btn btn-dark" %>
+    <% if current_author.image.present? %>
+      <%= image_tag(@author.image, width: '200', class: "rounded-circle") %>
+    <% else %>
+      <%= image_tag('https://i.stack.imgur.com/l60Hf.png', width: '100') %>
+    <% end %>
+    <p class="h4"><i><%= comment.body %></i></p>
+    <div class="comments-buttons">
+      <% if comment.unpublished? %>
+        <% if current_author && (current_author.id == comment.author_id) %>
+          <%= link_to "Publish", post_comment_path(@post, comment, comment: { status: 1 }), method: :put, class: "btn btn-dark" %>
+        <% end %>
+      <% end %>
+      <% if current_author && (current_author.id == comment.author_id) %>
+        <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "btn btn-dark" %>
+      <% end %>
+    </div>
+    <% if comment.edited? %>
+      <h5>Edited.</h5>
     <% end %>
   </div>
 </div>

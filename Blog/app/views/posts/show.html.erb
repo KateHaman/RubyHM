@@ -1,54 +1,60 @@
-<div class="container">
-  <div class="page-header">
-    <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
-      <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
-    </div>
-    <h1><%= @post.title %></h1>
-    <div class="header-btns">
+<div class="page-header">
+  <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
+    <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
+  </div>
+  <h1><%= @post.title %></h1>
+  <div class="header-btns">
+    <% if current_author && (current_author.id == @post.author_id) %>
       <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
         <%= link_to '', edit_post_path(@post), class: "btn btn-dark fa fa-edit" %>
       </div>
       <div class="inner" data-bs-toggle="tooltip" title="Destroy a post">
         <%= link_to '', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark fa fa-trash" %>
       </div>
-    </div>
-  </div>
-
-  <h4>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</h4>
-
-  <p id="notice"><%= notice %></p>
-
-  <div class="post-container">
-    <div class="image-container">
-      <%= image_tag(@post.image, width: '600') %>
-    </div>
-    <div class="info-container">
-      <p>
-        <strong>Date:</strong>
-        <%= @post.created_at.strftime("%a, %m/%d/%y, %r") %>
-      </p>
-
-      <p>
-        <strong>Author:</strong>
-        <%= @post.author.full_name %>
-      </p>
-
-      <p>
-        <strong>Content:</strong>
-        <%= @post.content %>
-      </p>
-    </div>
-  </div>
-  <div class="comments-container">
-    <div class="comments-select">
-      <h2>Show such comments:</h2>
-      <%= select_tag "status", options_for_select([['Published', 1], ['Unpublished', 0]], @comments_scope || 1), :onchange => ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();") %>
-    </div>
-    <h3><%= pluralize(@comments.size, "comment") %> available.</h3>
-    <%= render @comments %>
-  </div>
-  <div class="create-comment-container">
-    <h2>Leave your comment:</h2>
-    <%= render 'comments/form' %>
+    <% end %>
   </div>
 </div>
+<h4><i>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</i></h4>
+<p id="notice"><%= notice %></p>
+<div class="post-container">
+  <div class="image-container">
+    <%= image_tag(@post.image, width: '600') %>
+  </div>
+  <div class="info-container">
+    <p>
+      <strong>Creation date:</strong>
+      <%= @post.created_at.strftime("%a, %m/%d/%y, %r") %>
+    </p>
+    <p>
+      <strong>Author:</strong>
+      <%= @post.author.full_name %>
+    </p>
+    <p><% if current_author.image.present? %>
+                <%= image_tag(@author.image, width: '200', class: "rounded-circle") %>
+                <% else %>
+                <%= image_tag('https://i.stack.imgur.com/l60Hf.png', width: '100') %>
+                <% end %>
+                </p>
+    <p><i><%= @post.content %></i></p>
+  </div>
+</div>
+<div class="comments-container">
+  <div class="comments-select align-items-center">
+    <h2><%= pluralize(@comments.size, "comment") %> available:</h2>
+    <div>
+      <%= select_tag "status", options_for_select([['Published', 1, { class: 'dropdown-header' }], ['Unpublished', 0, { class: 'dropdown-header' }]], @comments_scope || 1), :onchange => ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();"), class: 'dropdown-header' %>
+    </div>
+  </div>
+
+  <%= render @comments %>
+</div>
+<div class="create-comment-container">
+  <h2>Leave your comment:</h2>
+  <% if current_author %>
+    <%= render 'comments/form', post: @post, comment: Comment.new %>
+  <% else %>
+    <p class="h8">Please log in to leave a comment!</p>
+  <% end %>
+</div>
+
+<% render 'sessions/modal' if show_modal?%>

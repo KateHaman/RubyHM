@@ -9,6 +9,6 @@ class Comment < ApplicationRecord
     published: 1
   }
 
-  # scope :published, -> { where(status: 1) }
-  # scope :unpublished, -> { where(status: 0) }
+  scope :published, -> { where(status: 1) }
+  scope :unpublished, -> { where(status: 0) }
 end
