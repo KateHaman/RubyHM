@@ -1,12 +1,5 @@
 <h1>Profile</h1>
   <div class="profile-info">
-    <div class="profile-image">
-    <% if current_author.image.present? %>
-      <%= image_tag(@author.image, width: '200', class: "rounded-circle") %>
-      <% else %>
-      <%= image_tag('https://i.stack.imgur.com/l60Hf.png', width: '200') %>
-      <% end %>
-    </div>
     <div class="profile-info-item">
       <strong>Name:</strong>
       <%= current_author.full_name %>

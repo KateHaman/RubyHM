@@ -4,11 +4,6 @@
       <h4>Comment by: <%= @post.author.full_name %></h4>
       <h4><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h4>
     </div>
-    <% if current_author.image.present? %>
-      <%= image_tag(@author.image, width: '200', class: "rounded-circle") %>
-    <% else %>
-      <%= image_tag('https://i.stack.imgur.com/l60Hf.png', width: '100') %>
-    <% end %>
     <p class="h4"><i><%= comment.body %></i></p>
     <div class="comments-buttons">
       <% if comment.unpublished? %>

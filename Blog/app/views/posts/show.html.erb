@@ -29,12 +29,6 @@
       <strong>Author:</strong>
       <%= @post.author.full_name %>
     </p>
-    <p><% if current_author.image.present? %>
-                <%= image_tag(@author.image, width: '200', class: "rounded-circle") %>
-                <% else %>
-                <%= image_tag('https://i.stack.imgur.com/l60Hf.png', width: '100') %>
-                <% end %>
-                </p>
     <p><i><%= @post.content %></i></p>
   </div>
 </div>
