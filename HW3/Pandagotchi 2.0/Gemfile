@@ -1,3 +1,1 @@
-source 'https://rubygems.org'
-
 gem 'html_saver', git: 'https://github.com/KateHaman/html_saver', branch: 'main'

@@ -7,7 +7,6 @@ GIT
       sanitize
 
 GEM
-  remote: https://rubygems.org/
   specs:
     crass (1.0.6)
     nokogiri (1.12.5-x86_64-linux)
