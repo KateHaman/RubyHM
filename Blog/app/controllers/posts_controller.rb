@@ -79,7 +79,7 @@ class PostsController < ApplicationController
   end
 
   def track_view
-    @post.views.create
+    @post.increment!(:views_count)
   end
 
   def track_visit
