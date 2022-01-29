@@ -1,26 +1,22 @@
 class CommentsController < ApplicationController
   before_action :authorize, only: %i[edit update create new]
+  before_action :set_post, only: %i[create edit update]
+  before_action :set_comment, only: %i[edit update]
 
   def create
-    @post = Post.find(params[:post_id])
-    @author_id = @post.author_id
     @comment = @post.comments.create(comment_params)
     redirect_to post_path(@post)
   end
 
+  def edit; end
+
   def update
-    @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
     return redirect_back fallback_location: root_path, notice: 'Unable to edit posts created more than hour ago.' if @comment.created_at < 1.hour.ago
 
-    @comment.update(comment_params)
-    redirect_to @post, notice: 'The comment has been updated.'
-  end
-
-  def edit
-    @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
-    if current_author == @comment.author
+    if @comment.update(comment_params)
+      redirect_to post_path(@post), notice: 'Comment was successfully updated.'
+    else
+      redirect_to post_path(@post)
     end
   end
 
@@ -31,5 +27,13 @@ class CommentsController < ApplicationController
     attributes[:status] = params[:comment][:status].to_i if params[:comment][:status]
     attributes[:edited] = true if params[:action] == 'update' && !params[:comment][:status]
     attributes
+  end
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 end

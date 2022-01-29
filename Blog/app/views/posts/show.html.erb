@@ -36,7 +36,7 @@
   <div class="comments-select align-items-center">
     <h2><%= pluralize(@comments.size, "comment") %> available:</h2>
     <div>
-      <%= select_tag "status", options_for_select([['Published', 1, { class: 'dropdown-header' }], ['Unpublished', 0, { class: 'dropdown-header' }]], @comments_scope || 1), :onchange => ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();"), class: 'dropdown-header' %>
+      <%= select_tag "status", options_for_select([['Published', 1, { class: 'dropdown-header' }], ['Unpublished', 0, { class: 'dropdown-header' }]], @comments_scope || 1), onchange: ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();"), class: 'dropdown-header' %>
     </div>
   </div>
 
@@ -51,4 +51,4 @@
   <% end %>
 </div>
 
-<% render 'sessions/modal' if show_modal?%>
+<%= render 'sessions/modal' if show_modal? %>

@@ -1,8 +1,29 @@
 <h1>Profile</h1>
   <div class="profile-info">
     <div class="profile-info-item">
-      <strong>Name:</strong>
-      <%= current_author.full_name %>
+      <% if current_author.image %>
+        <%= image_tag(@author.image, class:"rounded-circle", width:"100px", height:"100px") %>
+      <% end %>
+    </div>
+    <div class="profile-info-item">
+      <strong>First name:</strong>
+      <%= current_author.first_name %>
+    </div>
+    <div class="profile-info-item">
+      <strong>Last name:</strong>
+      <%= current_author.last_name %>
+    </div>
+    <div class="profile-info-item">
+      <% if current_author.gender %>
+      <strong>Gender:</strong>
+        <%= current_author.gender %>
+      <% end %>
+    </div>
+    <div class="profile-info-item">
+      <% if current_author.birthday %>
+      <strong>Birthday:</strong>
+        <%= current_author.birthday %>
+      <% end %>
     </div>
     <% if current_author %>
     <%= link_to 'Edit', edit_author_path(current_author), class: "btn btn-warning" %>

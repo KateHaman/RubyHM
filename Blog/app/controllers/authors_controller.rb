@@ -1,5 +1,10 @@
 class AuthorsController < ApplicationController
+  before_action :set_author, only: %i[show edit update]
   before_action :authorize, only: %i[edit update show]
+
+  def show
+    redirect_back fallback_location: root_path, notice: 'Please log in to go to your profile page.' if current_author.nil?
+  end
 
   def new
     @author = Author.new
@@ -15,14 +20,7 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def show
-    @author = Author.find(params[:id])
-    redirect_back fallback_location: root_path, notice: 'Please log in to go to your profile page.' if current_author.nil?
-  end
-
-  def edit
-    @author = Author.find(params[:id])
-  end
+  def edit; end
 
   def update
     if current_author.update(author_params)
@@ -37,5 +35,9 @@ class AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit(:first_name, :last_name, :email, :password, :password_confirmation, :image)
+  end
+
+  def set_author
+    @author = Author.find(params[:id])
   end
 end

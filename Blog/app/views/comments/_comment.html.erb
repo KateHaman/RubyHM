@@ -1,7 +1,10 @@
 <div class="card">
   <div class="card-body">
     <div class="comment-header">
-      <h4>Comment by: <%= @post.author.full_name %></h4>
+      <% if comment.author.image %>
+        <%= image_tag(comment.author.image, class:"rounded-circle", width:"50px", height:"50px") %>
+      <% end %>
+      <h4>Comment by: <%= comment.author.full_name %></h4>
       <h4><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h4>
     </div>
     <p class="h4"><i><%= comment.body %></i></p>

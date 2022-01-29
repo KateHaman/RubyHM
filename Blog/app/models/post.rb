@@ -1,7 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :author
   has_many :comments, dependent: :destroy
-  has_many :views, dependent: :destroy
 
   validates :title, :content, :image, presence: true
   validates :title, :content, uniqueness: true

@@ -26,10 +26,7 @@ class PostsController < ApplicationController
     @post = Post.includes(:author).new
   end
 
-  def edit
-    if current_author == @post.author
-    end
-  end
+  def edit; end
 
   def create
     @post = Post.new(post_params)
@@ -58,13 +55,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if current_author == @post.author
-      @post.destroy
+    @post.destroy
 
-      respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
