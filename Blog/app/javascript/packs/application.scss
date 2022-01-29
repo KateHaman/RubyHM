@@ -3,11 +3,18 @@
 .page-header {
   display: flex;
   justify-content: space-between;
+  width: 800px;
+}
+
+.post-page-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .new-post-page-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 800px;
 }
 
 .header-btn {
@@ -23,21 +30,12 @@
 }
 
 .form {
-  justify-content: center;
   display: flex;
   margin-top: 10px;
 }
 
 table {
   table-layout: auto;
-}
-
-.table-bordered {
-
-  th,
-  td {
-    border: 1px solid $gray-300;
-  }
 }
 
 .outer {
@@ -50,22 +48,16 @@ table {
 
 #error_explanation {
   color: #f00;
+}
 
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
+ul {
+  list-style: none;
+  margin: 0 0 18px 0;
 }
 
 .post-container {
   display: flex;
   justify-content: flex-start;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 30px;
-  margin-left: 30px;
 }
 
 #notice {
@@ -97,12 +89,12 @@ p {
   width: auto;
 }
 
-.mb-3 {
-  width: 150px;
+.posts-form {
+  width: 800px;
 }
 
-.posts-form {
-  text-align: center;
+.form-control {
+  width: 100%;
 }
 
 .actions {
@@ -110,7 +102,7 @@ p {
 }
 
 .comments-container {
-  width: 600px;
+  width: 100%;
 }
 
 .comments-select {
@@ -121,6 +113,7 @@ p {
 .comment-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .h4 {
@@ -176,10 +169,6 @@ p {
   padding-bottom: 0;
 }
 
-.comment-form {
-  width: 600px;
-}
-
 .sign-up-field {
   margin-bottom: 10px;
 }
@@ -203,11 +192,22 @@ p {
 }
 
 .edit-profile-btn {
-  width: 233px;
   text-align: center;
 }
 
 .log-in-btn {
   width: 233px;
   text-align: center;
+}
+
+.card {
+  width: 100%;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.error_messages {
+  color: red;
 }

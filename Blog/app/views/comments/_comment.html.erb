@@ -1,13 +1,13 @@
-<div class="card">
+<div class="card mt-3">
   <div class="card-body">
     <div class="comment-header">
       <% if comment.author.image %>
         <%= image_tag(comment.author.image, class:"rounded-circle", width:"50px", height:"50px") %>
       <% end %>
-      <h4>Comment by: <%= comment.author.full_name %></h4>
-      <h4><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h4>
+      <h6>Comment by: <%= comment.author.full_name %></h6>
+      <h6><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h6>
     </div>
-    <p class="h4"><i><%= comment.body %></i></p>
+    <p><i><%= comment.body %></i></p>
     <div class="comments-buttons">
       <% if comment.unpublished? %>
         <% if current_author && (current_author.id == comment.author_id) %>

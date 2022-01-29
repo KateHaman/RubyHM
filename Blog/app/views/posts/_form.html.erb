@@ -2,7 +2,7 @@
   <%= form_with(model: post) do |form| %>
     <% if post.errors.any? %>
       <div id="error_explanation">
-        <h2>Please correct <%= pluralize(post.errors.count, "error") %> to save this post:</h2>
+        <h4>Please correct <%= pluralize(post.errors.count, "error") %> to save this post:</h4>
         <ul>
           <% post.errors.each do |error| %>
             <li><%= error.full_message %></li>
@@ -10,26 +10,18 @@
         </ul>
       </div>
     <% end %>
-
     <div class="posts-form">
       <div class="card">
         <div class="card-body">
-
           <div class="mb-3">
-            <%= form.label :title, class: "form-label" %>
             <%== form.text_field :title, class: "form-control", placeholder: "Title" %>
           </div>
-
           <div class="mb-3">
-            <%= form.label :image, class: "form-label" %>
             <%== form.text_field :image, class: "form-control", placeholder: "Image Url" %>
           </div>
-
           <div class="mb-3">
-            <%= form.label :content, class: "form-label" %>
             <%== form.text_area :content, class: "form-control", placeholder: "Content" %>
           </div>
-
           <div class="actions">
             <%= form.submit "Submit", class: "btn btn-dark" %>
           </div>

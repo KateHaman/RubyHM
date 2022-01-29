@@ -1,4 +1,10 @@
-<h1>Editing Author</h1>
+<div class="d-flex justify-content-between">
+  <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
+    <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
+  </div>
+  <h2>Editing Author</h2>
+</div>
+
 <p id="notice"><%= notice %></p>
   <div class="edit-profile-form">
     <%= form_for current_author do |form| %>

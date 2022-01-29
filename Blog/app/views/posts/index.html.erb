@@ -1,43 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<table class="table table-light table-bordered table-striped table-hover">
-  <thead>
-  <tr class="table-dark">
-    <th scope="col">Author</th>
-    <th scope="col">Title</th>
-    <th scope="col">Content</th>
-    <th scope="col">Image</th>
-    <th scope="col">Views Count</th>
-    <th scope="col">Actions</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.author.full_name %></td>
-      <td data-bs-toggle="tooltip" title="Show a post"><%= link_to post.title, post, class: "link-dark" %></td>
-      <td><%= post.content %></td>
-      <td><%= image_tag(post.image, width: '200', class: "mx-auto d-block") %></td>
-      <td class="views-count"><%= post.views_count %></td>
-      <td>
-        <div class="outer">
-          <div class="inner" data-bs-toggle="tooltip" title="Show a post">
-            <%= link_to '', post, class: "btn btn-dark fa fa-eye" %>
+<% @posts.each do |post| %>
+  <div class="card">
+    <div class="row g-0">
+      <div class="col-md-4 d-flex align-items-center">
+        <%= image_tag(post.image, width: '400') %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 data-bs-toggle="tooltip" title="Show a post" class="card-title"><%= link_to post.title, post, class: "link-dark" %></h5>
+          <p class="card-text"><strong>By: <%= post.author.full_name %></strong></p>
+          <p class="card-text"><i>"<%= post.content %>"</i></p>
+          <div class="outer">
+            <div class="inner" data-bs-toggle="tooltip" title="Show a post">
+              <%= link_to '', post, class: "btn btn-dark fa fa-eye" %>
+            </div>
+            <% if current_author && (current_author.id == post.author_id) %>
+              <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
+                <%= link_to '', edit_post_path(post), class: "btn btn-dark fa fa-edit" %>
+              </div>
+              <div class="inner" data-bs-toggle="tooltip" title="Destroy a post">
+                <%= link_to '', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark fa fa-trash" %>
+              </div>
+            <% end %>
           </div>
-          <% if current_author && (current_author.id == post.author_id) %>
-            <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
-              <%= link_to '', edit_post_path(post), class: "btn btn-dark fa fa-edit" %>
-            </div>
-            <div class="inner" data-bs-toggle="tooltip" title="Destroy a post">
-              <%= link_to '', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark fa fa-trash" %>
-            </div>
-          <% end %>
         </div>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      Views:<%= post.views_count %>
+    </div>
+  </div>
+<% end %>
 
 <%= render 'sessions/modal' if show_modal? %>

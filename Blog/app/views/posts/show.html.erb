@@ -1,8 +1,8 @@
-<div class="page-header">
+<div class="post-page-header">
   <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
     <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
   </div>
-  <h1><%= @post.title %></h1>
+  <h2><%= @post.title %></h2>
   <div class="header-btns">
     <% if current_author && (current_author.id == @post.author_id) %>
       <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
@@ -14,13 +14,13 @@
     <% end %>
   </div>
 </div>
-<h4><i>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</i></h4>
+<h6><i>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</i></h6>
 <p id="notice"><%= notice %></p>
 <div class="post-container">
   <div class="image-container">
-    <%= image_tag(@post.image, width: '600') %>
+    <%= image_tag(@post.image, width: '500', class: 'rounded-3') %>
   </div>
-  <div class="info-container">
+  <div class="info-container px-5">
     <p>
       <strong>Creation date:</strong>
       <%= @post.created_at.strftime("%a, %m/%d/%y, %r") %>
@@ -34,7 +34,7 @@
 </div>
 <div class="comments-container">
   <div class="comments-select align-items-center">
-    <h2><%= pluralize(@comments.size, "comment") %> available:</h2>
+    <h4><%= pluralize(@comments.size, "comment") %> available:</h4>
     <div>
       <%= select_tag "status", options_for_select([['Published', 1, { class: 'dropdown-header' }], ['Unpublished', 0, { class: 'dropdown-header' }]], @comments_scope || 1), onchange: ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();"), class: 'dropdown-header' %>
     </div>
@@ -43,7 +43,7 @@
   <%= render @comments %>
 </div>
 <div class="create-comment-container">
-  <h2>Leave your comment:</h2>
+  <h4>Leave your comment:</h4>
   <% if current_author %>
     <%= render 'comments/form', post: @post, comment: Comment.new %>
   <% else %>

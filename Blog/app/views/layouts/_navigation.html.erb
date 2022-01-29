@@ -29,11 +29,11 @@
             <% end %>
             </li>
             <li class="nav-item">
-              <form class="form-inline my-2 my-lg-0" action="/search">
-                <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+              <form class="d-flex" action="/search">
+                <input class="form-control me-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Search</button>
               </form>
-              <% form_tag posts_path, :method => 'get' do %>
+              <% form_tag posts_path, method: 'get' do %>
                 <p>
                   <%= text_field_tag :search, params[:search] %>
                   <%= submit_tag "Search", :name => nil %>

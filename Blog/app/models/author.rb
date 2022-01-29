@@ -13,6 +13,7 @@ class Author < ApplicationRecord
     (?=.*[[:^alnum:]])
 /x.freeze
 
+  validates :first_name, :last_name, presence: true
   validates_uniqueness_of :email
   validates_format_of :email, with: /\A[\w.+-]+@\w+\.\w+\z/, message: 'Please enter a valid email address.'
   validates :password, format: PASSWORD_REQUIREMENTS, allow_nil: true
