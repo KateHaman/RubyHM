@@ -7,22 +7,22 @@
     </div>
     <div class="profile-info-item">
       <strong>First name:</strong>
-      <%= current_author.first_name %>
+      <%= @author.first_name %>
     </div>
     <div class="profile-info-item">
       <strong>Last name:</strong>
-      <%= current_author.last_name %>
+      <%= @author.last_name %>
     </div>
     <div class="profile-info-item">
-      <% if current_author.gender %>
+      <% if @author.gender %>
       <strong>Gender:</strong>
-        <%= current_author.gender %>
+        <%= @author.gender %>
       <% end %>
     </div>
     <div class="profile-info-item">
-      <% if current_author.birthday %>
+      <% if @author.birthday %>
       <strong>Birthday:</strong>
-        <%= current_author.birthday %>
+        <%= @author.birthday %>
       <% end %>
     </div>
     <% if current_author %>

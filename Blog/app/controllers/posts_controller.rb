@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  attr_accessor :records
   before_action :set_post, only: %i[show edit update destroy]
   after_action :track_view, only: :show
   before_action :authorize, only: %i[edit update create new]

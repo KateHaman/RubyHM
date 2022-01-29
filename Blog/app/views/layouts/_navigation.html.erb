@@ -1,6 +1,6 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="container">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
         <li class="nav-item">
           <%= link_to 'Posts', posts_path, class: "btn btn-dark" %>
@@ -9,9 +9,9 @@
           <%= link_to 'New Post', new_post_path, class: "btn btn-info" %>
         </li>
         <li class="nav-item">
-              <% if current_author %>
-        <%= link_to "Profile", current_author, class: "btn btn-info" %>
-        <% end %>
+          <% if current_author %>
+            <%= link_to "Profile", current_author, class: "btn btn-info" %>
+          <% end %>
         </li>
         <li class="nav-item">
           <div class="header-text">
@@ -28,16 +28,19 @@
                 <%= link_to "Log In", login_path, class: "btn btn-success" %>
             <% end %>
             </li>
+            <li class="nav-item">
+              <form class="form-inline my-2 my-lg-0" action="/search">
+                <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+              </form>
+              <% form_tag posts_path, :method => 'get' do %>
+                <p>
+                  <%= text_field_tag :search, params[:search] %>
+                  <%= submit_tag "Search", :name => nil %>
+                </p>
+              <% end %>
+            </li>
             </ul>
-      <form class="form-inline my-2 my-lg-0" action="/search">
-        <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <% form_tag posts_path, :method => 'get' do %>
-        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
-        </p>
-      <% end %>
     </div>
-  </nav>
+  </div>
+</nav>
