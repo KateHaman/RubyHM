@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authorize, only: %i[edit update create new]
-  before_action :set_post, only: %i[create edit update]
-  before_action :set_comment, only: %i[edit update]
+  before_action :set_post, only: %i[create edit update destroy]
+  before_action :set_comment, only: %i[edit update destroy]
 
   def create
     @comment = @post.comments.create(comment_params)
@@ -20,11 +20,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to posts_path, notice: 'Comment was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def comment_params
     attributes = params.require(:comment).permit(:body).merge(author_id: current_author.id)
-    attributes[:status] = params[:comment][:status].to_i if params[:comment][:status]
+    attributes[:status] = params[:comment][:status] if params[:comment][:status]
     attributes[:edited] = true if params[:action] == 'update' && !params[:comment][:status]
     attributes
   end
@@ -34,6 +43,6 @@ class CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comment = @post.comments.find(params[:id])
   end
 end

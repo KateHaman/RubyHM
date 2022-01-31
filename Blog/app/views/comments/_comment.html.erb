@@ -2,7 +2,7 @@
   <div class="card-body">
     <div class="comment-header">
       <% if comment.author.image %>
-        <%= image_tag(comment.author.image, class:"rounded-circle", width:"50px", height:"50px") %>
+        <%= image_tag(comment.author.image, class: "rounded-circle", width: "50px", height: "50px") %>
       <% end %>
       <h6>Comment by: <%= comment.author.full_name %></h6>
       <h6><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h6>
@@ -11,15 +11,46 @@
     <div class="comments-buttons">
       <% if comment.unpublished? %>
         <% if current_author && (current_author.id == comment.author_id) %>
-          <%= link_to "Publish", post_comment_path(@post, comment, comment: { status: 1 }), method: :put, class: "btn btn-dark" %>
+          <%= link_to "Publish", post_comment_path(@post, comment, comment: { status: 'published' }), method: :put, class: "btn btn-dark mb-2" %>
         <% end %>
       <% end %>
       <% if current_author && (current_author.id == comment.author_id) %>
-        <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "btn btn-dark" %>
+        <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "btn btn-dark mb-2" %>
+        <%= link_to "Destroy", post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark mb-2" %>
       <% end %>
     </div>
     <% if comment.edited? %>
-      <h5>Edited.</h5>
+      <h6>Edited.</h6>
     <% end %>
+    <%= comment.author_comment_votes.count %> <%= (comment.author_comment_votes.count) == 1 ? 'Vote' : 'Votes' %>:<br>
+    <%= comment.author_comment_votes.liked.count %> <%= (comment.author_comment_votes.liked.count) == 1 ? 'Like' : 'Likes' %>
+    |
+    <%= comment.author_comment_votes.disliked.count %> <%= (comment.author_comment_votes.disliked.count) == 1 ? 'Dislike' : 'Dislikes' %><br>
+    Total rating: <%= (comment.author_comment_votes.liked.count) - (comment.author_comment_votes.disliked.count) %>
+    <% if current_author %>
+      <% if :unvoted? %>
+        <div class="mt-1">
+          Vote:
+          <%= link_to '', post_comment_like_path(@post, comment, remote: true), method: :post, class: "like btn btn-dark fa fa-thumbs-up" %>
+          <%= link_to '', post_comment_dislike_path(@post, comment, remote: true), method: :post, class: "btn btn-dark fa fa-thumbs-down" %>
+        </div>
+      <% end %>
+    <% end %>
+    <%#= link_to "Reply to Comment", new_comment_path(parent_id: comment.id, post_id: @post.id), id: "new_link", remote: true %>
+
   </div>
 </div>
+<!--<script>-->
+<!--    jQuery('.like').click(function (e) {-->
+<!--        e.preventDefault();-->
+<!--        console.log('jjjj')-->
+<!--        jQuery.ajax({-->
+<!--            method: "POST",-->
+<!--            url: post_comment_like_path,-->
+<!--            data: {posts: "54", comments: "76"}-->
+<!--        })-->
+<!--            .done(function (msg) {-->
+<!--                alert("Data Saved: " + msg);-->
+<!--            });-->
+<!--    });-->
+<!--</script>-->

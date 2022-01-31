@@ -61,3 +61,5 @@ gem 'jquery-rails'
 gem 'faker'
 
 gem 'pagy', '~> 5.9'
+
+gem 'ancestry'

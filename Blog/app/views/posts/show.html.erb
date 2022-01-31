@@ -16,7 +16,7 @@
 </div>
 <h6><i>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</i></h6>
 <p id="notice"><%= notice %></p>
-<div class="post-container">
+<div class="post-container mb-3">
   <div class="image-container">
     <%= image_tag(@post.image, width: '500', class: 'rounded-3') %>
   </div>
@@ -36,19 +36,25 @@
   <div class="comments-select align-items-center">
     <h4><%= pluralize(@comments.size, "comment") %> available:</h4>
     <div>
-      <%= select_tag "status", options_for_select([['Published', 1, { class: 'dropdown-header' }], ['Unpublished', 0, { class: 'dropdown-header' }]], @comments_scope || 1), onchange: ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();"), class: 'dropdown-header' %>
+      <%= form_for('post', method: :get, :html=>{:id=>'lead_form'}) do |f| %>
+
+        <%= f.select :comments_scope, ['Published','Unpublished'], { selected: @comments_scope || 'Published' }, { onchange: 'this.form.submit();' } %>
+      <% end %>
     </div>
   </div>
 
   <%= render @comments %>
 </div>
-<div class="create-comment-container">
-  <h4>Leave your comment:</h4>
-  <% if current_author %>
-    <%= render 'comments/form', post: @post, comment: Comment.new %>
-  <% else %>
-    <p class="h8">Please log in to leave a comment!</p>
-  <% end %>
+
+<div class="container">
+  <div class="create-comment-container">
+    <h4>Leave your comment:</h4>
+    <% if current_author %>
+      <%= render 'comments/form', post: @post, comment: Comment.new %>
+    <% else %>
+      <p class="mb-3">Please log in to leave a comment!</p>
+    <% end %>
+  </div>
 </div>
 
 <%= render 'sessions/modal' if show_modal? %>

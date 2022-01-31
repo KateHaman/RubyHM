@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   resources :posts do
-    resources :comments
+    resources :comments do
+      post 'like', to: 'author_comment_votes#like'
+      post 'dislike', to: 'author_comment_votes#dislike'
+    end
   end
 
   get 'search', to: 'posts#search'

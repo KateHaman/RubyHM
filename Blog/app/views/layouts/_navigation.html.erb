@@ -2,45 +2,47 @@
   <div class="container-fluid">
     <div class="container">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+        <div class="d-flex align-items-center">
+          <li class="nav-item">
+            <%= link_to 'Posts', posts_path, class: "btn btn-dark" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'New Post', new_post_path, class: "btn btn-info" %>
+          </li>
+          <li class="nav-item">
+            <% if current_author %>
+              <%= link_to "Profile", current_author, class: "btn btn-info" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <div class="header-text">
+              <% if current_author %>
+                Logged in as <%= current_author.email %>.
+                </div>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Log Out", logout_path, class: "btn btn-danger" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Sign Up", signup_path, class: "btn btn-success" %>or
+                  <%= link_to "Log In", login_path, class: "btn btn-success" %>
+              <% end %>
+              </li>
+              </div>
         <li class="nav-item">
-          <%= link_to 'Posts', posts_path, class: "btn btn-dark" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'New Post', new_post_path, class: "btn btn-info" %>
-        </li>
-        <li class="nav-item">
-          <% if current_author %>
-            <%= link_to "Profile", current_author, class: "btn btn-info" %>
+          <form class="d-flex" action="/search">
+            <input class="form-control me-2" name="q" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+          <% form_tag posts_path, method: 'get' do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+            </p>
           <% end %>
         </li>
-        <li class="nav-item">
-          <div class="header-text">
-            <% if current_author %>
-              Logged in as <%= current_author.email %>.
-              </div>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Log Out", logout_path, class: "btn btn-danger" %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "Sign Up", signup_path, class: "btn btn-success" %>or
-                <%= link_to "Log In", login_path, class: "btn btn-success" %>
-            <% end %>
-            </li>
-            <li class="nav-item">
-              <form class="d-flex" action="/search">
-                <input class="form-control me-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark" type="submit">Search</button>
-              </form>
-              <% form_tag posts_path, method: 'get' do %>
-                <p>
-                  <%= text_field_tag :search, params[:search] %>
-                  <%= submit_tag "Search", :name => nil %>
-                </p>
-              <% end %>
-            </li>
-            </ul>
+      </ul>
     </div>
   </div>
 </nav>

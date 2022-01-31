@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   attr_accessor :records
+
   before_action :set_post, only: %i[show edit update destroy]
   after_action :track_view, only: :show
   before_action :authorize, only: %i[edit update create new]
@@ -7,7 +8,8 @@ class PostsController < ApplicationController
   before_action :track_visit, only: %i[index show]
 
   def index
-    @posts = Post.includes(:author).order(created_at: :desc)
+    @posts = Post.includes(:author)
+    @pagy, @posts = pagy(Post.all.order(created_at: :desc), items: 8)
   end
 
   def search
@@ -15,8 +17,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments_scope = params[:comments]
-    @comments = if @comments_scope == '0'
+    @comments = @post.comments.order(created_at: :desc)
+    @comments_scope = params.dig(:post, :comments_scope)
+    @comments = if @comments_scope == 'Unpublished'
                   @post.comments.unpublished
                 else
                   @post.comments.published
@@ -71,7 +74,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image).merge(author_id: current_author.id)
+    params.require(:post).permit(:title, :content, :image, :status).merge(author_id: current_author.id)
   end
 
   def track_view
