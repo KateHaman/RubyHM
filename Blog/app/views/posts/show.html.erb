@@ -36,9 +36,9 @@
   <div class="comments-select align-items-center">
     <h4><%= pluralize(@comments.size, "comment") %> available:</h4>
     <div>
-      <%= form_for('post', method: :get, :html=>{:id=>'lead_form'}) do |f| %>
+      <%= form_for('post', method: :get, :html => { :id => 'lead_form' }) do |f| %>
 
-        <%= f.select :comments_scope, ['Published','Unpublished'], { selected: @comments_scope || 'Published' }, { onchange: 'this.form.submit();' } %>
+        <%= f.select :comments_scope, ['Published', 'Unpublished'], { selected: @comments_scope || 'Published' }, { onchange: 'this.form.submit();' } %>
       <% end %>
     </div>
   </div>

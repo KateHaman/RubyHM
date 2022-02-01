@@ -1,47 +1,47 @@
 <div class="d-md-table">
-<h2>Sign Up</h2>
+  <h2>Sign Up</h2>
 
-<%= form_for @author do |f| %>
-  <% if @author.errors.any? %>
-    <div class="error_messages">
-      <h5>Please correct the mistakes to continue:</h5>
-      <ul>
-        <% @author.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <%= form_for @author do |f| %>
+    <% if @author.errors.any? %>
+      <div class="error_messages">
+        <h5>Please correct the mistakes to continue:</h5>
+        <ul>
+          <% @author.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="sign-up-field">
+      <%== f.text_field :first_name, class: "form-control", placeholder: "First name" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.text_field :image, class: "form-control", placeholder: "Avatar Url" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.text_field :gender, class: "form-control", placeholder: "Gender" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.text_field :birthday, class: "form-control", placeholder: "Birthday" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.text_field :email, class: "form-control", placeholder: "Email" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.password_field :password, class: "form-control", placeholder: "Password" %>
+    </div>
+    <div class="sign-up-field">
+      <%== f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password" %>
+    </div>
+    <div class="form-text">Please make sure your passwords contains<br> at least one: uppercase letter, downcase<br>
+      letter, number, special symbol.
+    </div>
+    <div class="sign-up-btn">
+      <%= f.submit "Sign Up", class: "btn btn-dark" %>
     </div>
   <% end %>
-
-  <div class="sign-up-field">
-    <%== f.text_field :first_name, class: "form-control", placeholder: "First name" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.text_field :image, class: "form-control", placeholder: "Avatar Url" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.text_field :gender, class: "form-control", placeholder: "Gender" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.text_field :birthday, class: "form-control", placeholder: "Birthday" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.text_field :email, class: "form-control", placeholder: "Email" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.password_field :password, class: "form-control", placeholder: "Password" %>
-  </div>
-  <div class="sign-up-field">
-    <%== f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password" %>
-  </div>
-  <div class="form-text">Please make sure your passwords contains<br> at least one: uppercase letter, downcase<br>
-    letter, number, special symbol.
-  </div>
-  <div class="sign-up-btn">
-    <%= f.submit "Sign Up", class: "btn btn-dark" %>
-  </div>
-<% end %>
 </div>

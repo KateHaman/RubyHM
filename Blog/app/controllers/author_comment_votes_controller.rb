@@ -8,6 +8,9 @@ class AuthorCommentVotesController < ApplicationController
     else
       @comment.author_comment_votes.liked.create(author_id: current_author.id)
     end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def dislike
@@ -16,13 +19,10 @@ class AuthorCommentVotesController < ApplicationController
     else
       @comment.author_comment_votes.disliked.create(author_id: current_author.id)
     end
+    respond_to do |format|
+      format.js
+    end
   end
-
-  # def rating
-  #   @comment.rating + 1 if @comment.liked?
-  #   @comment.rating - 1 if @comment.disliked?
-  #   @comment.increment!(:rating)
-  # end
 
   private
 

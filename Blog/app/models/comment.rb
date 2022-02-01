@@ -2,7 +2,6 @@ class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :author
   has_many :author_comment_votes, dependent: :destroy
-
   has_ancestry
 
   validates :body, :post, :author, presence: true
@@ -14,4 +13,8 @@ class Comment < ApplicationRecord
 
   scope :published, -> { where(status: :published) }
   scope :unpublished, -> { where(status: :unpublished) }
+
+  def voted_by?(author)
+    author_comment_votes.exists?(author: author)
+  end
 end

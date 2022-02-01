@@ -6,25 +6,25 @@
 </div>
 
 <p id="notice"><%= notice %></p>
-  <div class="edit-profile-form">
-    <%= form_for current_author do |form| %>
-      <div class="edit-profile-field">
-        <%== form.text_field :first_name, class: "form-control", placeholder: "First name" %>
-      </div>
-      <div class="edit-profile-field">
-        <%== form.text_field :last_name, class: "form-control", placeholder: "Last name" %><br>
-      </div>
-      <div class="edit-profile-field">
-        <%== form.text_field :image, class: "form-control", placeholder: "Avatar URl" %><br>
-      </div>
-      <div class="edit-profile-field">
-        <%== form.text_field :gender, class: "form-control", placeholder: "Gender" %><br>
-      </div>
-      <div class="edit-profile-field">
-        <%== form.text_field :birthday, class: "form-control", placeholder: "Birthday" %><br>
-      </div>
-      <div class="edit-profile-btn">
-        <%= form.submit "Submit", class: "btn btn-dark" %>
-      </div>
-  </div>
+<div class="edit-profile-form">
+  <%= form_for current_author do |form| %>
+    <div class="edit-profile-field">
+      <%== form.text_field :first_name, class: "form-control", placeholder: "First name" %>
+    </div>
+    <div class="edit-profile-field">
+      <%== form.text_field :last_name, class: "form-control", placeholder: "Last name" %><br>
+    </div>
+    <div class="edit-profile-field">
+      <%== form.text_field :image, class: "form-control", placeholder: "Avatar URl" %><br>
+    </div>
+    <div class="edit-profile-field">
+      <%== form.text_field :gender, class: "form-control", placeholder: "Gender" %><br>
+    </div>
+    <div class="edit-profile-field">
+      <%== form.text_field :birthday, class: "form-control", placeholder: "Birthday" %><br>
+    </div>
+    <div class="edit-profile-btn">
+      <%= form.submit "Submit", class: "btn btn-dark" %>
+    </div>
+    </div>
   <% end %>
