@@ -16,26 +16,12 @@
       <% end %>
       <% if current_author && (current_author.id == comment.author_id) %>
         <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "btn btn-dark mb-2" %>
-        <%= link_to "Destroy", post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark mb-2" %>
+        <%= link_to "Destroy", post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-dark mb-2" %>
       <% end %>
     </div>
     <% if comment.edited? %>
       <h6>Edited.</h6>
     <% end %>
-    <div class="statistics">
-      <%= comment.author_comment_votes.count %> <%= (comment.author_comment_votes.count) == 1 ? 'Vote' : 'Votes' %>:<br>
-      <%= comment.author_comment_votes.liked.count %> <%= (comment.author_comment_votes.liked.count) == 1 ? 'Like' : 'Likes' %>
-      |
-      <%= comment.author_comment_votes.disliked.count %> <%= (comment.author_comment_votes.disliked.count) == 1 ? 'Dislike' : 'Dislikes' %>
-      <br>
-      Total rating: <%= (comment.author_comment_votes.liked.count) - (comment.author_comment_votes.disliked.count) %>
-    </div>
-    <% if current_author && !comment.voted_by?(current_author) %>
-      <div class="mt-1">
-        Vote:
-        <%= link_to '', post_comment_like_path(@post, comment), remote: true, method: :post, class: "like btn btn-dark fa fa-thumbs-up" %>
-        <%= link_to '', post_comment_dislike_path(@post, comment), remote: true, method: :post, class: "btn btn-dark fa fa-thumbs-down" %>
-      </div>
-    <% end %>
+    <%= render 'author_comment_votes/author_comment_vote', comment: comment %>
   </div>
 </div>

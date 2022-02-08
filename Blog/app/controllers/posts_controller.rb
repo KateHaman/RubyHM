@@ -20,9 +20,9 @@ class PostsController < ApplicationController
     @comments = @post.comments.order(created_at: :desc)
     @comments_scope = params.dig(:post, :comments_scope)
     @comments = if @comments_scope == 'Unpublished'
-                  @post.comments.unpublished
+                  @post.comments.unpublished.order(created_at: :desc)
                 else
-                  @post.comments.published
+                  @post.comments.published.order(created_at: :desc)
                 end
   end
 

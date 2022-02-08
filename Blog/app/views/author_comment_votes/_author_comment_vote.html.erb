@@ -1,0 +1,20 @@
+<div class="statistics" id="statistics-<%= comment.id %>">
+  <div class="votes">
+    <%= comment.author_comment_votes.count %> <%= (comment.author_comment_votes.count) == 1 ? 'Vote' : 'Votes' %>:
+  </div>
+  <div class="votes-count">
+    <%= comment.author_comment_votes.liked.count %> <%= (comment.author_comment_votes.liked.count) == 1 ? 'Like' : 'Likes' %>
+    |
+    <%= comment.author_comment_votes.disliked.count %> <%= (comment.author_comment_votes.disliked.count) == 1 ? 'Dislike' : 'Dislikes' %>
+    <div class="rating">
+      Total rating: <%= (comment.author_comment_votes.liked.count) - (comment.author_comment_votes.disliked.count) %>
+    </div>
+  </div>
+</div>
+<% if current_author && !comment.voted_by?(current_author) %>
+  <div class="mt-1">
+    Vote:
+    <%= link_to '', post_comment_like_path(@post, comment), remote: true, method: :post, class: "like btn btn-dark fa fa-thumbs-up" %>
+    <%= link_to '', post_comment_dislike_path(@post, comment), remote: true, method: :post, class: "btn btn-dark fa fa-thumbs-down" %>
+  </div>
+<% end %>
