@@ -1,9 +1,11 @@
+<p id="notice" class="text-danger"><%= alert %></p>
+
 <div class="d-md-table">
   <h2>Log In</h2>
 
   <%= form_tag sessions_path do %>
     <div class="log-in-field">
-      <%== text_field_tag :email, params[:email], class: "form-control", placeholder: "Email" %>
+      <%== text_field_tag :email, params[:email], class: "form-control ", placeholder: "Email" %>
     </div>
     <div class="log-in-field">
       <%== password_field_tag :password, nil, class: "form-control", placeholder: "Password" %>

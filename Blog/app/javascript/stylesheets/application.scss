@@ -221,5 +221,9 @@ ul {
 }
 
 .edit-comment-form {
- display: none;
+  display: none;
+}
+
+.field_with_errors input {
+  border: 1px solid red !important;
 }

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_author
 
   def authorize
-    redirect_to login_url, alert: 'Not authorized' if current_author.nil?
+    redirect_to login_url, alert: 'Please log in to continue' if current_author.nil?
   end
 
   def author?
