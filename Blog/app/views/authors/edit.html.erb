@@ -15,13 +15,14 @@
       <%== form.text_field :last_name, class: "form-control", placeholder: "Last name" %><br>
     </div>
     <div class="edit-profile-field">
-      <%== form.text_field :image, class: "form-control", placeholder: "Avatar URl" %><br>
-    </div>
-    <div class="edit-profile-field">
       <%== form.text_field :gender, class: "form-control", placeholder: "Gender" %><br>
     </div>
     <div class="edit-profile-field">
       <%== form.text_field :birthday, class: "form-control", placeholder: "Birthday" %><br>
+    </div>
+    <div class="sign-up-field">
+      <%== form.file_field :avatar, class: "form-control" %>
+      <div class="form-text">Please upload an avatar.</div>
     </div>
     <div class="edit-profile-btn">
       <%= form.submit "Submit", class: "btn btn-dark" %>

@@ -1,8 +1,10 @@
 <h1>Profile</h1>
 <div class="profile-info">
   <div class="profile-info-item">
-    <% if current_author.image %>
-      <%= image_tag(@author.image, class: "rounded-circle", width: "100px", height: "100px") %>
+    <% if current_author.avatar.present? %>
+      <%= image_tag current_author.avatar, width: '150px', height: '150px', class: 'rounded-circle' %>
+    <% else %>
+      <%= image_tag("avatar.png", height: '200', width: '200', class: 'rounded-circle') %>
     <% end %>
   </div>
   <div class="profile-info-item">

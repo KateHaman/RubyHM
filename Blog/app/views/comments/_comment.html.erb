@@ -1,8 +1,10 @@
 <div class="card mt-3" id="comment-<%= comment.id %>">
   <div class="card-body">
     <div class="comment-header">
-      <% if comment.author.image %>
-        <%= image_tag(comment.author.image, class: "rounded-circle", width: "50px", height: "50px") %>
+      <% if comment.author.avatar.attached? %>
+        <%= image_tag comment.author.avatar, class: "rounded-circle", width: "50px", height: "50px" %>
+      <% else %>
+        <%= image_tag("avatar.png", height: '50', width: '50', class: 'rounded-circle') %>
       <% end %>
       <h6>Comment by: <%= comment.author.full_name %></h6>
       <h6><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h6>

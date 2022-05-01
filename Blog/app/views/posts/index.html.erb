@@ -3,13 +3,17 @@
   <div class="card">
     <div class="row g-0">
       <div class="col-md-4 d-flex align-items-center">
-        <%= image_tag(post.image, width: '400') %>
+        <% if post.image.present? %>
+          <%= image_tag post.image, width: '400' %>
+        <% else %>
+          <%= image_tag("placeholder.png", width: '400') %>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 data-bs-toggle="tooltip" title="Show a post" class="card-title"><%= link_to post.title, post, class: "link-dark" %></h5>
           <p class="card-text"><strong>By: <%= post.author.full_name %></strong></p>
-          <p class="card-text"><i>"<%= post.content %>"</i></p>
+          <p class="card-text"><i>"<%= post.content.truncate(400) %>"</i></p>
           <div class="outer">
             <div class="inner" data-bs-toggle="tooltip" title="Show a post">
               <%= link_to '', post, class: "btn btn-dark fa fa-eye" %>
@@ -33,4 +37,4 @@
 <% end %>
 <%= render 'posts/pagination', locals: { pagy: @pagy } %>
 
-<%= render 'sessions/modal' if show_modal? %>
+<%#= render 'sessions/modal' if show_modal? %>

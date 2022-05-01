@@ -18,7 +18,11 @@
 <p id="notice"><%= notice %></p>
 <div class="post-container mb-3">
   <div class="image-container">
-    <%= image_tag(@post.image, width: '500', class: 'rounded-3') %>
+    <% if @post.image.present? %>
+      <%= image_tag @post.image, width: '500', class: 'rounded-3' %>
+    <% else %>
+      <%= image_tag("placeholder.png", width: '500', class: 'rounded-3') %>
+    <% end %>
   </div>
   <div class="info-container px-5">
     <p>
