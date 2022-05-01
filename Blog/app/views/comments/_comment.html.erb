@@ -18,11 +18,11 @@
     <% end %>
     <div class="comments-buttons">
       <% if comment.unpublished? %>
-        <% if current_author_comment? %>
+        <% if comment_author(comment) %>
           <%= link_to "Publish", post_comment_path(@post, comment, comment: { status: 'published' }), method: :put, class: "btn btn-dark mb-2" %>
         <% end %>
       <% end %>
-      <% if current_author_comment? %>
+      <% if comment_author(comment) %>
         <%= link_to "Destroy", post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-dark mb-2" %>
         <%= link_to "Edit", post_comment_path(@post, comment), remote: true, class: "edit-comment-form-display btn btn-dark mb-2" %>
         <div class="edit-comment-form">
