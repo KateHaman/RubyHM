@@ -17,13 +17,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments
     @comments_scope = params.dig(:post, :comments_scope)
     @comments = if @comments_scope == 'Unpublished'
-                  @post.comments.unpublished.order(created_at: :desc)
+                  @post.comments.unpublished
                 else
-                  @post.comments.published.order(created_at: :desc)
+                  @post.comments.published
                 end
+    @comments = @comments.order(created_at: :desc)
   end
 
   def new
