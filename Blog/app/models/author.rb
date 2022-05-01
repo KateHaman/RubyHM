@@ -22,8 +22,8 @@ class Author < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates_uniqueness_of :email
-  validates_format_of :email, with: /\A[\w.+-]+@\w+\.\w+\z/, message: 'Please enter a valid email address.'
-  validates :password, format: PASSWORD_REQUIREMENTS, allow_nil: true
+  validates_format_of :email, with: /\A[\w.+-]+@\w+\.\w+\z/, message: 'should be valid'
+  validates :password, format: { with: PASSWORD_REQUIREMENTS, message: "should be at least 8 characters long. It also should contain at least one uppercase letter, downcase letter, number and special symbol"}, allow_nil: true
 
   def full_name
     "#{first_name} #{last_name}"

@@ -1,4 +1,4 @@
-<div class="d-md-table">
+<div class="d-md-table w-50%">
   <h2>Sign Up</h2>
 
   <%= form_for @author do |f| %>
@@ -45,8 +45,8 @@
     <div class="sign-up-field">
       <%== f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password" %>
     </div>
-    <div class="form-text">Please make sure your passwords contains<br> at least one: uppercase letter, downcase<br>
-      letter, number, special symbol.
+    <div class="form-text">Please make sure your password is at least 8 characters long.<br>It should also contain one uppercase letter, downcase
+      letter,<br>number, special symbol.
     </div>
     <div class="sign-up-btn">
       <%= f.submit "Sign Up", class: "btn btn-dark" %>
