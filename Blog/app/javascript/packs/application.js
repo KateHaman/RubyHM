@@ -8,9 +8,16 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-require("@popperjs/core")
-import 'bootstrap'
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "bootstrap"
+import { Tooltip, Popover } from "bootstrap"
+require("../stylesheets/application.scss")
+import "@fortawesome/fontawesome-free/css/all"
+
+import "controllers"
+import Flatpickr from 'stimulus-flatpickr'
+require("flatpickr/dist/flatpickr.css")
+application.register('flatpickr', Flatpickr)

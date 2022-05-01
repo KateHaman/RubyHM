@@ -4,7 +4,7 @@ class AuthorCommentVotesController < ApplicationController
 
   def like
     if already_voted?
-      flash[:notice] = 'It is not possible to like more than once.'
+      flash[:notice] = 'It is not possible to vote more than once.'
     else
       @comment.author_comment_votes.liked.create(author_id: current_author.id)
     end
@@ -15,9 +15,10 @@ class AuthorCommentVotesController < ApplicationController
 
   def dislike
     if already_voted?
-      flash[:notice] = 'It is not possible to like more than once.'
+      flash[:notice] = 'It is not possible to vote more than once.'
     else
       @comment.author_comment_votes.disliked.create(author_id: current_author.id)
+
     end
     respond_to do |format|
       format.js

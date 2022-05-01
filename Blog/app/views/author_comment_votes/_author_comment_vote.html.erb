@@ -1,11 +1,11 @@
 <div class="statistics" id="statistics-<%= comment.id %>">
   <div class="votes">
-    <%= comment.author_comment_votes.count %> <%= (comment.author_comment_votes.count) == 1 ? 'Vote' : 'Votes' %>:
+    <%= pluralize(comment.author_comment_votes.count, "Vote") %>:
   </div>
   <div class="votes-count">
-    <%= comment.author_comment_votes.liked.count %> <%= (comment.author_comment_votes.liked.count) == 1 ? 'Like' : 'Likes' %>
+    <%= pluralize(comment.author_comment_votes.liked.count, "Like") %>
     |
-    <%= comment.author_comment_votes.disliked.count %> <%= (comment.author_comment_votes.disliked.count) == 1 ? 'Dislike' : 'Dislikes' %>
+    <%= pluralize(comment.author_comment_votes.disliked.count, "Dislike") %>
     <div class="rating">
       Total rating: <%= (comment.author_comment_votes.liked.count) - (comment.author_comment_votes.disliked.count) %>
     </div>

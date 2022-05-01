@@ -25,8 +25,15 @@
     <div class="sign-up-field">
       <%== f.text_field :gender, class: "form-control", placeholder: "Gender" %>
     </div>
+    <!--    <div class="sign-up-field">-->
+    <%#== f.text_field :birthday, class: "form-control", placeholder: "Birthday" %>
+    <!--    </div>-->
     <div class="sign-up-field">
-      <%== f.text_field :birthday, class: "form-control", placeholder: "Birthday" %>
+      <%= f.text_field :birthday,
+                       data: {
+                         controller: "flatpickr",
+                         flatpickr_min_date: Time.zone.now
+                       } %>
     </div>
     <div class="sign-up-field">
       <%== f.text_field :email, class: "form-control", placeholder: "Email" %>

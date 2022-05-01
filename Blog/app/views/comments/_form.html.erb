@@ -1,11 +1,6 @@
-<%= form_with model: [@post, comment] do |form| %>
-  <div class="comment-form">
-    <div class="d-flex align-content-between flex-column w-100 mb-3">
-      <%= form.hidden_field :parent_id %>
-      <%= form.text_area :body, class: "input p-2", placeholder: "Comment", rows: '4' %>
-    </div>
-    <div class="new-post-submit-btn">
-      <%= form.submit "Submit", class: "btn btn-dark mb-2" %>
-    </div>
-  </div>
-<% end %>
+<div class="text-center">
+  <%= form_for [@post, Comment.new] do |f| %>
+    <%= f.text_area :body, class: "input p-2 w-100", placeholder: "Comment", rows: '4' %>
+    <%= f.submit 'Save', class: 'btn btn-dark mb-2' %>
+  <% end %>
+</div>

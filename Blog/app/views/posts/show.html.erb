@@ -1,4 +1,4 @@
-<div class="post-page-header">
+<div class="post-page-header mt-3 mb-3">
   <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
     <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
   </div>
@@ -34,7 +34,7 @@
 </div>
 <div class="comments-container">
   <div class="comments-select align-items-center">
-    <h4><%= pluralize(@comments.size, "comment") %> available:</h4>
+    <h4 class="comments-count"><%= pluralize(@comments.size, "comment") %> available:</h4>
     <div>
       <%= form_for('post', method: :get, :html => { :id => 'lead_form' }) do |f| %>
 
@@ -48,11 +48,11 @@
 
 <div class="container">
   <div class="create-comment-container">
-    <h4>Leave your comment:</h4>
+    <h4 class="text-center">Leave your comment:</h4>
     <% if current_author %>
       <%= render 'comments/form', post: @post, comment: Comment.new %>
     <% else %>
-      <p class="mb-3">Please log in to leave a comment!</p>
+      <p class="mb-3">Please log in to leave or reply a comment!</p>
     <% end %>
   </div>
 </div>

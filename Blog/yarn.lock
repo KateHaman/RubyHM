@@ -905,6 +905,11 @@
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@fortawesome/fontawesome-free@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.1.1.tgz#bf5d45611ab74890be386712a0e5d998c65ee2a1"
+  integrity sha512-J/3yg2AIXc9wznaVqpHVX3Wa5jwKovVF0AMYSnbmcXTiL3PpRPfF58pzWucCwEiCJBp+hCNRLWClTomD8SseKg==
+
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.2.tgz"
@@ -1332,6 +1337,16 @@
   dependencies:
     ip-address "^5.8.8"
 
+"@hotwired/stimulus-webpack-helpers@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz"
+  integrity sha512-wa/zupVG0eWxRYJjC1IiPBdt3Lruv0RqGN+/DTMmUWUyMAEB27KXmVY6a8YpUVTM7QwVuaLNGW4EqDgrS2upXQ==
+
+"@hotwired/stimulus@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@hotwired/stimulus/-/stimulus-3.0.1.tgz"
+  integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -1593,9 +1608,9 @@
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
 "@popperjs/core@^2.11.2":
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
-  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
+  version "2.11.5"
+  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
+  integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
 
 "@rails/actioncable@^6.0.0":
   version "6.1.4"
@@ -1603,9 +1618,9 @@
   integrity sha512-0LmSKJTuo2dL6BQ+9xxLnS9lbkyfz2mBGeBnQ2J7o9Bn0l0q+ZC6VuoZMZZXPvABI4QT7Nfknv5WhfKYL+boew==
 
 "@rails/actiontext@^6.1.4-4":
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-6.1.4.tgz#ed8c7d2b68d66205301f4538ce65d04c48031f6b"
-  integrity sha512-KG+VCofmfZAhW1x1xFxMC2sZtvwbx+XX0Y+dzeBFjKU1jZMM0RNytJf5EiuHtD9fL71zz6/nMT7FjwOFenSA7Q==
+  version "6.1.5"
+  resolved "https://registry.npmjs.org/@rails/actiontext/-/actiontext-6.1.5.tgz"
+  integrity sha512-V88uyueaL4VeU0u0P3GiuM0vSBYW3pluYyI7jMmZKWfGZKCspmRLDaJE+30Bx4h3ZQJcRrOCFoTU8hK0cFmCsw==
   dependencies:
     "@rails/activestorage" "^6.0.0"
 
@@ -1667,7 +1682,7 @@
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
+  resolved "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
 "@sindresorhus/is@^0.7.0":
@@ -3373,10 +3388,17 @@ debug@^3.1.0, debug@^3.1.1, debug@^3.2.6:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.1.0, debug@^4.1.1:
+debug@^4.1.0:
   version "4.3.3"
   resolved "https://registry.npmjs.org/debug/-/debug-4.3.3.tgz"
   integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
+  dependencies:
+    ms "2.1.2"
+
+debug@^4.1.1:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
 
@@ -4075,6 +4097,11 @@ findup-sync@^3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
+flatpickr@^4.6.13:
+  version "4.6.13"
+  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-4.6.13.tgz"
+  integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
+
 flatted@^3.2.2:
   version "3.2.4"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz"
@@ -4375,7 +4402,7 @@ got@^8.3.1, got@^8.3.2:
 
 got@^9.6.0:
   version "9.6.0"
-  resolved "https://registry.yarnpkg.com/got/-/got-9.6.0.tgz#edf45e7d67f99545705de1f7bbeeeb121765ed85"
+  resolved "https://registry.npmjs.org/got/-/got-9.6.0.tgz"
   integrity sha512-R7eWptXuGYxwijs0eV+v3o6+XH1IqVK8dJOEecQfTmkncw9AV4dcw/Dhxi8MdlqPthxxpZyizMzyg8RTmEsG+Q==
   dependencies:
     "@sindresorhus/is" "^0.14.0"
@@ -5338,7 +5365,7 @@ jest-worker@^26.5.0:
 
 jquery@^3.6.0:
   version "3.6.0"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
   integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
 
 js-tokens@^4.0.0:
@@ -5429,7 +5456,7 @@ keyv@3.0.0:
 
 keyv@^3.0.0:
   version "3.1.0"
-  resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"
+  resolved "https://registry.npmjs.org/keyv/-/keyv-3.1.0.tgz"
   integrity sha512-9ykJ/46SN/9KPM/sichzQ7OvXyGDYKGTaDlKMGCAlg2UK8KRy4jb0d8sFc+0Tt0YYnThq8X2RZgCg74RPxgcVA==
   dependencies:
     json-buffer "3.0.0"
@@ -6009,7 +6036,14 @@ nice-try@^1.0.4:
   resolved "https://registry.npmjs.org/nice-try/-/nice-try-1.0.5.tgz"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-node-fetch@^2.2.0, node-fetch@^2.6.1:
+node-fetch@^2.2.0:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+node-fetch@^2.6.1:
   version "2.6.6"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.6.tgz"
   integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
@@ -6551,9 +6585,9 @@ pbkdf2@^3.0.3:
     sha.js "^2.4.8"
 
 phoenix@^1.4.3:
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/phoenix/-/phoenix-1.6.6.tgz#16b578e36361d238707a66bf235e3f59ff3fb298"
-  integrity sha512-KLNHVlrZH8UAoEzeCS1XBI9z5juWz0gZ/+No7j5p/byVINnd+del9H5vtBMzQgZa3ZcUjVVZcQR8bKdnH/FmMg==
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/phoenix/-/phoenix-1.6.7.tgz#0036b36f199436ccb94a76c94f9a60b396576a72"
+  integrity sha512-vkwAcrtX0Xa6bZI1ZlNGf1VDVVd4DLTIOv+mnLUsewk1UNHBE+19M2jetfNdxdjn62P7FfFDRxgZ8PKB8RsClg==
 
 picocolors@^0.2.1:
   version "0.2.1"
@@ -6628,7 +6662,7 @@ pnp-webpack-plugin@^1.7.0:
 
 popper.js@^1.16.1:
   version "1.16.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  resolved "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
   integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
 
 portfinder@^1.0.26:
@@ -8285,6 +8319,19 @@ static-extend@^0.1.1:
   resolved "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
+stimulus-flatpickr@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/stimulus-flatpickr/-/stimulus-flatpickr-1.4.0.tgz"
+  integrity sha512-rcC/c9+E+f5W2kOjaaLShtf3i+p95ACqt+oGzSAgeuZh2YeIN8gW4EWO7h0STBLzSVPl6BjIfPWP7upMPavIVQ==
+
+stimulus@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/stimulus/-/stimulus-3.0.1.tgz"
+  integrity sha512-73uZG5E5bwH7W2BldieTXg4yJuEmOfIHgtO/aqwU0JkWNjwY75ZaoOAD2EEPvi5AK43N9adEeOQOmlgWf59HOg==
+  dependencies:
+    "@hotwired/stimulus" "^3.0.1"
+    "@hotwired/stimulus-webpack-helpers" "^1.0.0"
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.npmjs.org/stream-browserify/-/stream-browserify-2.0.2.tgz"
@@ -8743,7 +8790,7 @@ treeify@^1.1.0:
 
 trix@^1.2.0:
   version "1.3.1"
-  resolved "https://registry.yarnpkg.com/trix/-/trix-1.3.1.tgz#ccce8d9e72bf0fe70c8c019ff558c70266f8d857"
+  resolved "https://registry.npmjs.org/trix/-/trix-1.3.1.tgz"
   integrity sha512-BbH6mb6gk+AV4f2as38mP6Ucc1LE3OD6XxkZnAgPIduWXYtvg2mI3cZhIZSLqmMh9OITEpOBCCk88IVmyjU7bA==
 
 "true-myth@2.2.3":

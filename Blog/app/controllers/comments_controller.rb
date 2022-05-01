@@ -5,13 +5,17 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), notice: 'Comment was successfully created.'
+  end
+
+  def new
+    @comment = Comment.new(parent_id: params[:parent_id])
   end
 
   def edit; end
 
   def update
-    return redirect_back fallback_location: root_path, notice: 'Unable to edit posts created more than hour ago.' if @comment.created_at < 1.hour.ago
+    return redirect_back fallback_location: root_path, notice: 'Unable to edit comments created more than hour ago.' if @comment.created_at < 1.hour.ago
 
     if @comment.update(comment_params)
       redirect_to post_path(@post), notice: 'Comment was successfully updated.'
@@ -30,7 +34,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    attributes = params.require(:comment).permit(:body).merge(author_id: current_author.id)
+    attributes = params.require(:comment).permit(:body, :parent_id).merge(author_id: current_author.id)
     attributes[:status] = params[:comment][:status] if params[:comment][:status]
     attributes[:edited] = true if params[:action] == 'update' && !params[:comment][:status]
     attributes

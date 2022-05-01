@@ -7,7 +7,13 @@
       <h6>Comment by: <%= comment.author.full_name %></h6>
       <h6><i>Updated <%= distance_of_time_in_words(Time.now, comment.updated_at) %> ago.</i></h6>
     </div>
+    <% if comment.edited? %>
+      <h6>Edited.</h6>
+    <% end %>
     <p><i><%= comment.body %></i></p>
+    <% if comment.published? %>
+      <%= render 'author_comment_votes/author_comment_vote', comment: comment %>
+    <% end %>
     <div class="comments-buttons">
       <% if comment.unpublished? %>
         <% if current_author && (current_author.id == comment.author_id) %>
@@ -15,13 +21,36 @@
         <% end %>
       <% end %>
       <% if current_author && (current_author.id == comment.author_id) %>
-        <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "btn btn-dark mb-2" %>
         <%= link_to "Destroy", post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-dark mb-2" %>
+        <%= link_to "Edit", post_comment_path(@post, comment), remote: true, class: "edit-comment-form-display btn btn-dark mb-2" %>
+        <div class="edit-comment-form">
+          <%= render 'comments/form' %>
+          <%= link_to 'Cancel', post_path, class: 'link-dark mb-2 mt-2' %>
+        </div>
+      <% end %>
+      <% if current_author %>
+        <%= link_to 'Reply', new_post_comment_path(@post, parent_id: @comment), class: 'sub-comment-form-display btn btn-dark mb-2' %>
+        <div class="sub-comment-form">
+          <%= render 'comments/sub_comment', comment: comment %>
+          <%= link_to 'Cancel', post_path, class: 'link-dark mb-2 mt-2' %>
+        </div>
       <% end %>
     </div>
-    <% if comment.edited? %>
-      <h6>Edited.</h6>
-    <% end %>
-    <%= render 'author_comment_votes/author_comment_vote', comment: comment %>
   </div>
 </div>
+
+<script>document.querySelectorAll('.edit-comment-form-display').forEach((el) => {
+    el.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        el.nextElementSibling.style = 'display: block;'
+    })
+})
+</script>
+
+<script>document.querySelectorAll('.sub-comment-form-display').forEach((el) => {
+    el.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        el.nextElementSibling.style = 'display: block;'
+    })
+})
+</script>

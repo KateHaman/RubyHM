@@ -1,0 +1,11 @@
+<div class="new-sub-comment-form">
+  <%= form_for [@post, Comment.new] do |f| %>
+    <%= f.hidden_field :parent_id, value: comment.id %>
+    <%= f.text_area :body, class: "input p-2 w-100", placeholder: "Comment", rows: '4' %>
+    <%= f.submit 'Save', class: 'btn btn-dark mb-2' %>
+  <% end %>
+  <%#= link_to 'Cancel', post_path, class: 'link-dark mb-2' %>
+</div>
+<div class="sub-comments">
+  <%#= nested_messages @messages.arrange(:order => :created_at) %>
+</div>
