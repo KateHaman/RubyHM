@@ -21,8 +21,3 @@ test:
 production:
   <<: *default
 #  url: ENV['ADFSDGDF_DATABASE_URL']
-
-#database: stark-lake-22562_production
-#  username: stark-lake-22562
-#    password: <%#= ENV['STARK-LAKE-22562_DATABASE_PASSWORD'] %>
-
