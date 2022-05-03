@@ -19,22 +19,18 @@
     <div class="sign-up-field">
       <%== f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
     </div>
-    <div class="sign-up-field">
-      <%== f.text_field :gender, class: "form-control", placeholder: "Gender" %>
+    <div class="sign-up-field text-muted">
+      <%= f.label :gender, 'Select Gender:' %></br>
+      <%= f.radio_button :gender, "Male" %><span class="option ms-2">Male</span></br>
+      <%= f.radio_button :gender, "Female" %><span class="option ms-2">Female</span></br>
+      <%= f.radio_button :gender, "Undefined" %><span class="option ms-2">Prefer Not to Say</span></br>
     </div>
-    <!--    <div class="sign-up-field">-->
-    <%#== f.text_field :birthday, class: "form-control", placeholder: "Birthday" %>
-    <!--    </div>-->
-    <div class="sign-up-field">
-      <%= f.text_field :birthday,
-                       data: {
-                         controller: "flatpickr",
-                         flatpickr_min_date: Time.zone.now
-                       } %>
+    <div class="sign-up-field input-group-text">
+      <%== f.date_select :birthday, start_year: Date.current.year - 16, end_year: 1920, order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' } %>
     </div>
     <div class="sign-up-field">
       <%== f.file_field :avatar, class: "form-control" %>
-      <div class="form-text">Please upload an avatar. </div>
+      <div class="form-text">Please upload an avatar.</div>
     </div>
     <div class="sign-up-field">
       <%== f.text_field :email, class: "form-control", placeholder: "Email" %>
@@ -45,7 +41,8 @@
     <div class="sign-up-field">
       <%== f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm your password" %>
     </div>
-    <div class="form-text">Please make sure your password is at least 8 characters long.<br>It should also contain one uppercase letter, downcase
+    <div class="form-text">Please make sure your password is at least 8 characters long.<br>It should also contain one
+      uppercase letter, downcase
       letter,<br>number, special symbol.
     </div>
     <div class="sign-up-btn">

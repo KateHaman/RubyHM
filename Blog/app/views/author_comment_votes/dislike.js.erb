@@ -1,1 +1,2 @@
 document.querySelector('#comment-<%= @comment.id %> .mt-1').innerHTML = ''
+document.querySelector("#statistics-<%= @comment.id %>").innerHTML = "<%= j render 'author_comment_votes/author_comment_vote', comment: @comment %>";

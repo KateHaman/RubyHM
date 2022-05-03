@@ -24,7 +24,7 @@
   <div class="profile-info-item">
     <% if @author.birthday %>
       <strong>Birthday:</strong>
-      <%= @author.birthday %>
+      <%= @author.birthday.to_time.strftime('%B %e, %Y') %>
     <% end %>
   </div>
   <% if current_author %>

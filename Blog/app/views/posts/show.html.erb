@@ -36,9 +36,9 @@
     <p><i><%= @post.content %></i></p>
   </div>
 </div>
-<div class="comments-container">
+<div class="comments-container" id="comments">
   <div class="comments-select align-items-center">
-    <h4 class="comments-count"><%= pluralize(@comments.size, "comment") %> available:</h4>
+    <h4 id="comments-count"><%= pluralize(@comments.size, "comment") %> available:</h4>
     <div>
       <%= form_for('post', method: :get, :html => { :id => 'lead_form' }) do |f| %>
 

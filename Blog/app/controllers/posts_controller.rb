@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   after_action :track_view, only: :show
   before_action :authorize, only: %i[edit update create new]
-  before_action :author?, only: %i[edit update destroy]
+  before_action :post_author?, only: %i[edit update destroy]
   before_action :track_visit, only: %i[index show]
 
   def index

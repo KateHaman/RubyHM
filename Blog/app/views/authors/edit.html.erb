@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
-  <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
-    <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
+  <div class="header-btn" data-bs-toggle="tooltip" title="Go to Profile">
+    <%= link_to '', author_path, class: "btn btn-dark fa fa-arrow-left" %>
   </div>
   <h2>Editing Author</h2>
 </div>
@@ -14,11 +14,14 @@
     <div class="edit-profile-field">
       <%== form.text_field :last_name, class: "form-control", placeholder: "Last name" %><br>
     </div>
-    <div class="edit-profile-field">
-      <%== form.text_field :gender, class: "form-control", placeholder: "Gender" %><br>
+    <div class="sign-up-field text-muted">
+      <%= form.label :gender, 'Select Gender:' %></br>
+      <%= form.radio_button :gender, "Male" %><span class="option ms-2">Male</span></br>
+      <%= form.radio_button :gender, "Female" %><span class="option ms-2">Female</span></br>
+      <%= form.radio_button :gender, "Undefined" %><span class="option ms-2">Prefer Not to Say</span></br>
     </div>
-    <div class="edit-profile-field">
-      <%== form.text_field :birthday, class: "form-control", placeholder: "Birthday" %><br>
+    <div class="sign-up-field input-group-text">
+      <%== form.date_select :birthday, start_year: Date.current.year - 16, end_year: 1920, order: [:day, :month, :year] %>
     </div>
     <div class="sign-up-field">
       <%== form.file_field :avatar, class: "form-control" %>
